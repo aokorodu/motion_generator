@@ -4,8 +4,9 @@ export class App{
       this.animTypeButtons = [];
       this.animSpeedButtons = [];
       this.curveButtons = [];
+      this.viewButtons = [];
       this.selectedAnimation = "";
-      this.motionTarget = document.getElementById('motion-target');
+      this.motionTargets = document.querySelectorAll('.box');
       this.slideDistance = 50;
       this.left = {x: -this.slideDistance, y:0};
       this.right = {x: this.slideDistance, y:0};
@@ -27,8 +28,14 @@ export class App{
       this.normal = .33;
       this.fast = .15;
       this.veryFast = .1;
-
+      this.instant = 0;
       this.selectedDuration = this.slow;
+
+      // view
+      this.boxView = "box-view"
+      this.twoBoxView = "two-box-view";
+      this.textView = "text-view";
+      this.selectedView = this.boxView
   }
 
   init(){
@@ -37,9 +44,7 @@ export class App{
   }
 
   initProps(){
-    // const fromProps = {x: this.slideDistance, y:0, opacity: 0};
-    // const toProps = {x: 0, y:0, opacity: 1, duration: 1, delay: 1};
-    // gsap.fromTo(this.motionTarget, fromProps, toProps);
+    this.motionTargets[1].style.display = "none";
   }
 
   getSpeed(selection) {
@@ -49,6 +54,7 @@ export class App{
       "normal": this.normal,
       "fast": this.fast,
       "veryFast": this.veryFast,
+      "instant": this.instant
     }[selection]
   }
 
@@ -88,6 +94,13 @@ export class App{
           })
       }
 
+      this.viewButtons = document.querySelectorAll('.view-selection');
+      for(let button of this.viewButtons){
+          button.addEventListener('click', (e)=>{
+              this.selectedEase = this.getCurve(e.target.innerText);
+              console.log('selectedEase: ', this.selectedEase)
+          })
+      }
 
       
       
@@ -97,64 +110,68 @@ export class App{
     console.log(this.selectedAnimation);
     switch(selectedAnimation){
       case "fadeIn":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: 0.2});
       break;
 
       case "fadeOut":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.origin.x, y: this.origin.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.origin.x, y: this.origin.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: 0.2});
       break;
 
       // in
       case "slideInRight":
-        gsap.fromTo(this.motionTarget, {x:this.left.x, y: this.left.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.left.x, y: this.left.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: 0.2});
       break;
 
       case "slideInLeft":
-        gsap.fromTo(this.motionTarget, {x:this.right.x, y: this.right.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.right.x, y: this.right.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: 0.2});
       break;
 
       case "slideInUp":
-        gsap.fromTo(this.motionTarget, {x:this.down.x, y: this.down.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.down.x, y: this.down.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: 0.2});
       break;
 
       case "slideInDown":
-        gsap.fromTo(this.motionTarget, {x:this.up.x, y: this.up.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.up.x, y: this.up.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: 0.2});
       break;
       
       // out
       case "slideOutRight":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.right.x, y: this.right.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.right.x, y: this.right.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: 0.2});
       break;
 
       case "slideOutLeft":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.left.x, y: this.left.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.left.x, y: this.left.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: 0.2});
       break;
 
       case "slideOutUp":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.up.x, y: this.up.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.up.x, y: this.up.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: 0.2});
       break;
 
       case "slideOutDown":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.down.x, y: this.down.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay()});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.down.x, y: this.down.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: 0.2});
       break;
 
       case "scaleUp":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1, scale:1}, {x:this.origin.x, y: this.origin.y, opacity:1, scale:2, ease:this.selectedEase, duration: this.selectedDuration});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1, scale:1}, {x:this.origin.x, y: this.origin.y, opacity:1, scale:2, ease:this.selectedEase, duration: this.selectedDuration, stagger: 0.2});
       break;
 
       case "scaleDown":
-        gsap.fromTo(this.motionTarget, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.origin.x, y: this.origin.y, opacity:1, scale:1, ease:this.selectedEase, duration: this.selectedDuration});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.origin.x, y: this.origin.y, opacity:1, scale:1, ease:this.selectedEase, duration: this.selectedDuration, stagger: 0.2});
+      break;
+
+      case "rotate":
+        gsap.fromTo(this.motionTargets, {rotate:0, opacity:1}, {rotate:180, ease:this.selectedEase, duration: this.selectedDuration, stagger: 0.2});
       break;
     }
   }
 
   getFadeInDelay(){
-    return this.motionTarget.style.opacity == "0" ? 0 : .33;
+    return this.motionTargets[0].style.opacity == "0" ? 0 : .33;
         
   }
 
   getFadeOutDelay(){
-    return this.motionTarget.style.opacity == "0" ? .33 : 0;
+    return this.motionTargets[0].style.opacity == "0" ? .33 : 0;
         
   }
 
