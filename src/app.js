@@ -1,9 +1,10 @@
 import { gsap } from 'gsap';
 export class App{
   constructor(){
-      this.classButtons = [];
+      this.animTypeButtons = [];
+      this.animSpeedButtons = [];
       this.selectedAnimation = "";
-      
+      this.selectedSpeed = "";
       this.motionTarget = document.getElementById('motion-target');
       this.slideDistance = 50;
       this.left = {x: -this.slideDistance, y:0};
@@ -21,12 +22,12 @@ export class App{
 
       // duration
       this.verySlow = 1;
-      this.slow = .6;
+      this.slow = .66;
       this.normal = .33;
       this.fast = .15;
       this.veryFast = .1;
 
-      this.selectedDuration = this.normal;
+      this.selectedDuration = this.slow;
   }
 
   init(){
@@ -40,15 +41,37 @@ export class App{
     // gsap.fromTo(this.motionTarget, fromProps, toProps);
   }
 
+  getSpeed(selection) {
+    return {
+      "verySlow": this.verySlow,
+      "slow": this.slow,
+      "normal": this.normal,
+      "fast": this.fast,
+      "veryFast": this.veryFast,
+    }[selection]
+  }
+
   initButtons(){
       console.log('initButtons');
-      this.classButtons = document.querySelectorAll('.type-button');
-      for(let button of this.classButtons){
+      this.animTypeButtons = document.querySelectorAll('.type-selection');
+      for(let button of this.animTypeButtons){
           button.addEventListener('click', (e)=>{
               this.selectedAnimation = e.target.innerText;
               this.animate(this.selectedAnimation);
           })
       }
+
+      this.animSpeedButtons = document.querySelectorAll('.speed-selection');
+      for(let button of this.animSpeedButtons){
+          button.addEventListener('click', (e)=>{
+              this.selectedSpeed = e.target.innerText;
+              this.selectedDuration = this.getSpeed(this.selectedSpeed);
+              console.log('selected speed: ', this.getSpeed(this.selectedSpeed))
+          })
+      }
+
+
+      
   }
 
   animate(selectedAnimation){
