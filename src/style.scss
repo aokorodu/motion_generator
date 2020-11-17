@@ -13,9 +13,23 @@ $fast: 100ms;
     background-color: #eaeaea;
 }
 
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .ui-holder{
+  width: 100%;
+  height: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .animation-type-holder{
@@ -24,12 +38,19 @@ $fast: 100ms;
 
 .type-button{
     width: 100%;
-    text-align: right;
     background-color: #eaeaea;
     color: rgb(42, 42, 42);
     padding: 4px;
     font-size: 12px;
     margin-bottom: 2px;
+}
+
+.right-align{
+  text-align: right;
+}
+
+.left-align{
+  text-align: left;
 }
 
 .selected {
