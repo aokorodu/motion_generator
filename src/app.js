@@ -3,8 +3,8 @@ export class App{
   constructor(){
       this.animTypeButtons = [];
       this.animSpeedButtons = [];
+      this.curveButtons = [];
       this.selectedAnimation = "";
-      this.selectedSpeed = "";
       this.motionTarget = document.getElementById('motion-target');
       this.slideDistance = 50;
       this.left = {x: -this.slideDistance, y:0};
@@ -14,11 +14,12 @@ export class App{
       this.origin = {x: 0, y:0};
       
       // easing
-      this.sineEase = "Sine.easeInOut";
-      this.backEase = "back";
-      this.elasticEase = "elastic";
-      this.linearEase = "linear";
-      this.selectedEase = this.backEase;
+      this.normalEase = "Sine.easeInOut";
+      this.emphasis = "back";
+      this.energetic = "elastic";
+      this.linear = "linear";
+      this.reveal = "Power4.easeInOut"
+      this.selectedEase = this.reveal;
 
       // duration
       this.verySlow = 1;
@@ -51,6 +52,16 @@ export class App{
     }[selection]
   }
 
+  getCurve(selection) {
+    return {
+      "normal": this.normalEase,
+      "energetic": this.energetic,
+      "reveal": this.reveal,
+      "emphasis": this.emphasis,
+      "linear": this.linear,
+    }[selection]
+  }
+
   initButtons(){
       console.log('initButtons');
       this.animTypeButtons = document.querySelectorAll('.type-selection');
@@ -64,13 +75,21 @@ export class App{
       this.animSpeedButtons = document.querySelectorAll('.speed-selection');
       for(let button of this.animSpeedButtons){
           button.addEventListener('click', (e)=>{
-              this.selectedSpeed = e.target.innerText;
-              this.selectedDuration = this.getSpeed(this.selectedSpeed);
-              console.log('selected speed: ', this.getSpeed(this.selectedSpeed))
+              this.selectedDuration = this.getSpeed(e.target.innerText);
+              console.log('selected duration: ', this.selectedDuration)
+          })
+      }
+
+      this.curveButtons = document.querySelectorAll('.curve-selection');
+      for(let button of this.curveButtons){
+          button.addEventListener('click', (e)=>{
+              this.selectedEase = this.getCurve(e.target.innerText);
+              console.log('selectedEase: ', this.selectedEase)
           })
       }
 
 
+      
       
   }
 

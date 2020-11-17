@@ -53,6 +53,26 @@ $fast: 100ms;
   text-align: left;
 }
 
+.right{
+  text-align: right;
+}
+
+.left{
+  text-align: left;
+}
+
+.curve-selection{
+  text-align: left;
+}
+
+.section-heading {
+  font-size: 16px;
+  font-weight: 800;
+  font-variant: small-caps;
+  text-decoration: underline;
+  padding: 4px;
+}
+
 .selected {
     background-color: rgb(42, 42, 42);
     color: #eaeaea;
@@ -74,6 +94,8 @@ $fast: 100ms;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
 
 /* opacity */
 
