@@ -80,10 +80,34 @@ export class App{
     }[selection]
   }
 
+  getButtonGroup(selection) {
+    return {
+      "type-selection": this.animTypeButtons,
+      "speed-selection": this.animSpeedButtons,
+      "curve-selection": this.curveButtons,
+      "view-selection": this.viewButtons,
+    }[selection]
+  }
+
+  selectButton(button, buttonGroupName){
+    const buttonGroup = this.getButtonGroup(buttonGroupName);
+    for(let b of buttonGroup){
+      console.log('this one? ', button == b)
+      //button == b ? button.select() : button.deselect();
+      if(b == button){
+        b.select();
+      } else {
+        b.deselect();
+      }
+    }
+  }
+
   
 
   initButtons(){
       console.log('initButtons');
+      const test = document.querySelector(".hhh");
+      console.log('test: ', test)
       this.initAnimTypeButtons();
       this.initAnimSpeedButtons();
       this.initCurveButtons();
@@ -94,7 +118,8 @@ export class App{
     this.animTypeButtons = document.querySelectorAll('.type-selection');
     for(let button of this.animTypeButtons){
         button.addEventListener('click', (e)=>{
-            this.selectedAnimation = e.target.innerText;
+            this.selectedAnimation = button.name;
+            this.selectButton(button, "type-selection")
             this.animate(this.selectedAnimation);
         })
     }
