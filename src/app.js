@@ -129,8 +129,8 @@ export class App{
     this.animSpeedButtons = document.querySelectorAll('.speed-selection');
       for(let button of this.animSpeedButtons){
           button.addEventListener('click', (e)=>{
-              this.selectedDuration = this.getSpeed(e.target.innerText);
-              console.log('selected duration: ', this.selectedDuration)
+              this.selectedDuration = this.getSpeed(button.name);
+              this.selectButton(button, "speed-selection")
           })
       }
   }
