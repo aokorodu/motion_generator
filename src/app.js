@@ -16,8 +16,8 @@ export class App{
       
       // easing
       this.normalEase = "Sine.easeInOut";
-      this.emphasis = "back";
-      this.energetic = "elastic";
+      this.emphasis = "back.inOut";
+      this.energetic = "elastic.inOut";
       this.linear = "linear";
       this.reveal = "Power4.easeInOut"
       this.selectedEase = this.reveal;
@@ -36,6 +36,7 @@ export class App{
       // view
       this.boxView = "box-view"
       this.twoBoxView = "two-box-view";
+      this.threeBoxView = "three-box-view";
       this.textView = "text-view";
       this.selectedView = this.boxView;
   }
@@ -75,67 +76,92 @@ export class App{
       "text":this.textView,
       "- O -": this.boxView,
       "- O O -": this.twoBoxView,
+      "- O O O -": this.threeBoxView,
     }[selection]
   }
 
+  
+
   initButtons(){
       console.log('initButtons');
-      this.animTypeButtons = document.querySelectorAll('.type-selection');
-      for(let button of this.animTypeButtons){
-          button.addEventListener('click', (e)=>{
-              this.selectedAnimation = e.target.innerText;
-              this.animate(this.selectedAnimation);
-          })
-      }
+      this.initAnimTypeButtons();
+      this.initAnimSpeedButtons();
+      this.initCurveButtons();
+      this.initViewButtons();
+  }
 
-      this.animSpeedButtons = document.querySelectorAll('.speed-selection');
+  initAnimTypeButtons(){
+    this.animTypeButtons = document.querySelectorAll('.type-selection');
+    for(let button of this.animTypeButtons){
+        button.addEventListener('click', (e)=>{
+            this.selectedAnimation = e.target.innerText;
+            this.animate(this.selectedAnimation);
+        })
+    }
+  }
+
+  initAnimSpeedButtons(){
+    this.animSpeedButtons = document.querySelectorAll('.speed-selection');
       for(let button of this.animSpeedButtons){
           button.addEventListener('click', (e)=>{
               this.selectedDuration = this.getSpeed(e.target.innerText);
               console.log('selected duration: ', this.selectedDuration)
           })
       }
+  }
 
-      this.curveButtons = document.querySelectorAll('.curve-selection');
-      for(let button of this.curveButtons){
-          button.addEventListener('click', (e)=>{
-              this.selectedEase = this.getCurve(e.target.innerText);
-              console.log('selectedEase: ', this.selectedEase)
-          })
-      }
+  initCurveButtons(){
+    this.curveButtons = document.querySelectorAll('.curve-selection');
+    for(let button of this.curveButtons){
+        button.addEventListener('click', (e)=>{
+            this.selectedEase = this.getCurve(e.target.innerText);
+            console.log('selectedEase: ', this.selectedEase)
+        })
+    }
+  }
 
-      this.viewButtons = document.querySelectorAll('.view-selection');
-      for(let button of this.viewButtons){
-          button.addEventListener('click', (e)=>{
-              this.selectedView = this.getView(e.target.innerText);
-              console.log('selectedView: ', this.selectedView);
-              switch(this.selectedView){
-                case this.textView:
-                  for(let target of this.motionTargets){
-                    target.classList.remove('default-border');
-                  }
-                break;
+  initViewButtons(){
+    this.viewButtons = document.querySelectorAll('.view-selection');
+    for(let button of this.viewButtons){
+        button.addEventListener('click', (e)=>{
+            this.selectedView = this.getView(e.target.innerText);
+            console.log('selectedView: ', this.selectedView);
+            switch(this.selectedView){
+              case this.textView:
+                for(let target of this.motionTargets){
+                  target.classList.remove('default-border');
+                }
+              break;
 
-                case this.boxView:
-                  for(let target of this.motionTargets){
-                    target.classList.add('default-border');
-                  }
-                  this.motionTargets[1].style.display = "none";
-                break;
+              case this.boxView:
+                for(let i = 0; i < this.motionTargets.length; i++){
+                  const target = this.motionTargets[i];
+                  target.classList.add('default-border');
+                  i == 0 ? target.style.display = "" : target.style.display = "none";
+                }
+                
+              break;
 
-                case this.twoBoxView:
-                  for(let target of this.motionTargets){
-                    target.classList.add('default-border');
-                  }
-                  this.motionTargets[1].style.display = "";
-                break;
-              }
-              
-          })
-      }
+              case this.twoBoxView:
+                for(let i = 0; i < this.motionTargets.length; i++){
+                  const target = this.motionTargets[i];
+                  target.classList.add('default-border');
+                  i > 1 ? target.style.display = "none" : target.style.display = "";
+                }
+                //this.motionTargets[1].style.display = "";
+              break;
 
-      
-      
+              case this.threeBoxView:
+                for(let i = 0; i < this.motionTargets.length; i++){
+                  const target = this.motionTargets[i];
+                  target.classList.add('default-border');
+                  target.style.display = "";
+                }
+              break;
+            }
+            
+        })
+    }
   }
 
   animate(selectedAnimation){
@@ -163,7 +189,7 @@ export class App{
       break;
 
       case "slideInDown":
-        gsap.fromTo(this.motionTargets, {x:this.up.x, y: this.up.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: this.staggerDuration});
+        gsap.fromTo(this.motionTargets, {x:this.up.x, y: this.up.y, opacity:0}, {x:this.origin.x, y: this.origin.y, opacity:1, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeInDelay(), stagger: {each:this.staggerDuration, from:"end"}});
       break;
       
       // out
@@ -180,7 +206,7 @@ export class App{
       break;
 
       case "slideOutDown":
-        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.down.x, y: this.down.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: this.staggerDuration});
+        gsap.fromTo(this.motionTargets, {x:this.origin.x, y: this.origin.y, opacity:1}, {x:this.down.x, y: this.down.y, opacity:0, ease:this.selectedEase, duration: this.selectedDuration, delay:this.getFadeOutDelay(), stagger: {each:this.staggerDuration, from:"end"}});
       break;
 
       case "scaleUp":
@@ -218,9 +244,5 @@ export class App{
     const currentScale = gsap.getProperty(this.motionTargets[0], "scale")
     console.log(currentScale);
     return currentScale > 1 ? 0 : .33;   
-  }
-
-  updateClassList(){
-
   }
 }

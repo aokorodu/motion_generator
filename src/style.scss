@@ -41,8 +41,15 @@ $fast: 100ms;
     background-color: #eaeaea;
     color: rgb(42, 42, 42);
     padding: 4px;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 2px;
+    transition-property: color, background-color;
+    transition-duration: 200ms;
+    
+    &:hover{
+      color: #eaeaea;
+      background-color: rgb(42,42,42);
+    }
 }
 
 .type-selection{
@@ -90,7 +97,7 @@ $fast: 100ms;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -101,12 +108,14 @@ $fast: 100ms;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    margin: 20px;
+    color: #333333;
 }
 
 .default-border {
-  border: 1px solid black;
+  border: 1px solid #111111;
 }
 
 
