@@ -20,7 +20,7 @@ export class App{
       this.energetic = "elastic.inOut";
       this.linear = "linear";
       this.reveal = "Power4.easeInOut"
-      this.selectedEase = this.reveal;
+      this.selectedEase = this.normalEase;
 
       // duration
       this.verySlow = 1.33;
@@ -93,7 +93,6 @@ export class App{
     const buttonGroup = this.getButtonGroup(buttonGroupName);
     for(let b of buttonGroup){
       console.log('this one? ', button == b)
-      //button == b ? button.select() : button.deselect();
       if(b == button){
         b.select();
       } else {
@@ -139,8 +138,8 @@ export class App{
     this.curveButtons = document.querySelectorAll('.curve-selection');
     for(let button of this.curveButtons){
         button.addEventListener('click', (e)=>{
-            this.selectedEase = this.getCurve(e.target.innerText);
-            console.log('selectedEase: ', this.selectedEase)
+            this.selectedEase = this.getCurve(button.name);
+            this.selectButton(button, "curve-selection")
         })
     }
   }
@@ -149,8 +148,8 @@ export class App{
     this.viewButtons = document.querySelectorAll('.view-selection');
     for(let button of this.viewButtons){
         button.addEventListener('click', (e)=>{
-            this.selectedView = this.getView(e.target.innerText);
-            console.log('selectedView: ', this.selectedView);
+          this.selectButton(button, "view-selection")
+            this.selectedView = this.getView(button.name);
             switch(this.selectedView){
               case this.textView:
                 for(let target of this.motionTargets){
