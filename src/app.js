@@ -32,7 +32,7 @@ export class App {
     this.fast = .33;
     this.veryFast = .15;
     this.instant = 0;
-    this.selectedDuration = this.slow;
+    this.selectedDuration = this.normal;
 
     this.staggerDuration = 0.1
 
@@ -259,7 +259,11 @@ export class App {
 
       case "wiggle":
         console.log('wiggle');
-        gsap.to(this.motionTargets, {});
+        const tl = gsap.timeline();
+        tl.to(this.motionTargets, {x:5, duration:this.selectedDuration/6, ease:this.selectedEase})
+        .to(this.motionTargets, {x:-5, duration:this.selectedDuration/6, ease:this.selectedEase, yoyo:true, repeat:3})
+        .to(this.motionTargets, {x:0, duration:this.selectedDuration/6, ease:this.selectedEase});
+        //gsap.to(this.motionTargets, {});
         break;
     }
   }
