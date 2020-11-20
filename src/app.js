@@ -8,6 +8,7 @@ export class App {
     this.animSpeedButtons = [];
     this.curveButtons = [];
     this.viewButtons = [];
+    this.staggerButtons = [];
     this.selectedAnimation = "";
     this.motionTargets = document.querySelectorAll('.box');
     this.summaryContent = document.getElementById('summary-content');
@@ -35,7 +36,14 @@ export class App {
     this.instant = 0;
     this.selectedDuration = this.normal;
 
-    this.staggerDuration = 0.1
+    // stagger
+    this.verySlowStagger = 0.5;
+    this.slowStagger = 0.3;
+    this.normalStagger = 0.2;
+    this.fastStagger = 0.1;
+    this.veryFastStagger = 0.05;
+    this.noStagger = 0;
+    this.staggerDuration = this.fastStagger;
 
     // view
     this.boxView = "box-view"
@@ -88,12 +96,24 @@ export class App {
     }[selection]
   }
 
+  getStagger(selection) {
+    return {
+      "stagger-very-slow": this.verySlowStagger,
+      "stagger-slow": this.slowStagger,
+      "stagger-normal": this.normalStagger,
+      "stagger-fast": this.fastStagger,
+      "stagger-very-fast": this.veryFastStagger,
+      "stagger-none": this.noStagger,
+    }[selection]
+  }
+
   getButtonGroup(selection) {
     return {
       "type-selection": this.animTypeButtons,
       "speed-selection": this.animSpeedButtons,
       "curve-selection": this.curveButtons,
       "view-selection": this.viewButtons,
+      "stagger-selection": this.staggerButtons
     }[selection]
   }
 
@@ -119,6 +139,7 @@ export class App {
     this.initAnimSpeedButtons();
     this.initCurveButtons();
     this.initViewButtons();
+    this.initStaggerButtons();
   }
 
   initAnimTypeButtons() {
@@ -194,6 +215,18 @@ export class App {
             break;
         }
 
+      })
+    }
+  }
+
+  initStaggerButtons() {
+    console.log('initStaggerButtons');
+    this.staggerButtons = document.querySelectorAll('.stagger-selection');
+    for (let button of this.staggerButtons) {
+      button.addEventListener('click', (e) => {
+        this.staggerDuration = this.getStagger(button.name);
+        this.selectButton(button, "stagger-selection");
+        this.animate(this.selectedAnimation);
       })
     }
   }
