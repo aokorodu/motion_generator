@@ -10,6 +10,7 @@ export class App {
     this.viewButtons = [];
     this.selectedAnimation = "";
     this.motionTargets = document.querySelectorAll('.box');
+    this.summaryContent = document.getElementById('summary-content');
     this.slideDistance = 50;
     this.left = { x: -this.slideDistance, y: 0 };
     this.right = { x: this.slideDistance, y: 0 };
@@ -197,8 +198,12 @@ export class App {
     }
   }
 
+  updateSummaryContent(){
+    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase}`;
+  }
+
   animate(selectedAnimation) {
-    // console.log(this.selectedAnimation);
+    this.updateSummaryContent();
     switch (selectedAnimation) {
       case "fadeIn":
         gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });

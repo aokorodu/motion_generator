@@ -90,6 +90,21 @@ $fast: 100ms;
     color: #eaeaea;
 }
 
+.generator-content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#summary-content{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 100;
+
+}
+
 .generator-holder{
     position: relative;
     width: 600px;
