@@ -13,12 +13,10 @@
 <body>
 
   <div id="container">
-    <div>Motion Generator</div>
+    <div class="main-title">Motion Generator</div>
     <div class="ui-holder">
       <div class="animation-type-holder">
-        <div class="section-heading right">type</div>
-        <setting-button name="fadeOut" class="type-selection" right></setting-button>
-        <setting-button name="fadeIn" class="type-selection" right></setting-button>
+        <div class="section-heading right">motion type</div>
         <setting-button name="slideOutRight" class="type-selection" right></setting-button>
         <setting-button name="slideInRight" class="type-selection" right></setting-button>
         <setting-button name="slideOutLeft" class="type-selection" right></setting-button>
@@ -33,15 +31,15 @@
         <setting-button name="wiggle" class="type-selection" right></setting-button>
         <setting-button name="expand" class="type-selection" right></setting-button>
         <setting-button name="contract" class="type-selection" right></setting-button>
+        <setting-button name="fadeOut" class="type-selection" right></setting-button>
+        <setting-button name="fadeIn" class="type-selection" right></setting-button>
+        
       </div>
       <div class="generator-content">
         <div class="generator-holder">
-          <div id="motion-target" class="box default-border"><span class="input" role="textbox"
-              contenteditable>hello</span></div>
-          <div id="motion-target-2" class="box default-border"><span class="input" role="textbox" contenteditable> -
-            </span></div>
-          <div id="motion-target-3" class="box default-border"><span class="input" role="textbox"
-              contenteditable>world</span></div>
+          <div id="motion-target" class="box default-border"><span class="input" role="textbox" contenteditable>Vanguard</span></div>
+          <div id="motion-target-2" class="box default-border"><span class="input" role="textbox" contenteditable>Experience</span></div>
+          <div id="motion-target-3" class="box default-border"><span class="input" role="textbox" contenteditable>Team</span></div>
         </div>
         <div id="summary-content">-</div>
       </div>
@@ -68,7 +66,7 @@
         <setting-button name="stagger-very-slow" class="stagger-selection"></setting-button>
         <setting-button name="stagger-slow" class="stagger-selection"></setting-button>
         <setting-button name="stagger-normal" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-fast" class="stagger-selection"></setting-button>
+        <setting-button name="stagger-fast" class="stagger-selection" active></setting-button>
         <setting-button name="stagger-very-fast" class="stagger-selection"></setting-button>
         <setting-button name="stagger-none" class="stagger-selection"></setting-button>
       </div>

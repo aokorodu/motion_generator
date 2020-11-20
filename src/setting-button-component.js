@@ -8,7 +8,7 @@ template.innerHTML = `
     padding: 4px;
     font-size: 14px;
     text-align: left;
-    margin-bottom: 2px;
+    margin-bottom: 0;
     border: none;
     transition-property: color, background-color;
     transition-duration: 200ms;
