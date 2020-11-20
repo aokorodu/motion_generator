@@ -47,27 +47,27 @@ template.innerHTML = `
       this.shadowRoot.appendChild(template.content.cloneNode(true));
 
       this.button = this.shadowRoot.querySelector(".setting-button");
-      console.log('this.button: ', this.button)
+      // console.log('this.button: ', this.button)
       this.button.innerText = this.name;
       if(this.rightAlign) this.button.classList.add("right");
       this.activate(this.active);
     }
 
     activate(bool){
-      console.log('activate? ', bool)
+      // console.log('activate? ', bool)
       this.active = bool;
 
       if(this.active){
         this.button.classList.add("active-button");
-        console.log('activating ', this.name)
+        // console.log('activating ', this.name)
       } else {
         this.button.classList.remove("active-button");
-        console.log('deactivating ', this.name)
+        // console.log('deactivating ', this.name)
       }
     }
 
     select(){
-      console.log('selecting ', this.name)
+      // console.log('selecting ', this.name)
       this.activate(true);
     }
 

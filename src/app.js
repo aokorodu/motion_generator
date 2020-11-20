@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { CustomEase } from "gsap/CustomEase";
-
+//import { Draggable } from "gsap/Draggable";
 
 export class App {
   constructor() {
@@ -55,7 +55,6 @@ export class App {
   }
 
   initProps() {
-    //this.motionTargets[1].style.display = "none";
   }
 
   getSpeed(selection) {
@@ -100,7 +99,7 @@ export class App {
   selectButton(button, buttonGroupName) {
     const buttonGroup = this.getButtonGroup(buttonGroupName);
     for (let b of buttonGroup) {
-      console.log('this one? ', button == b)
+      // console.log('this one? ', button == b)
       if (b == button) {
         b.select();
       } else {
@@ -112,9 +111,9 @@ export class App {
 
 
   initButtons() {
-    console.log('initButtons');
+    // console.log('initButtons');
     const test = document.querySelector(".hhh");
-    console.log('test: ', test)
+    // console.log('test: ', test)
     this.initAnimTypeButtons();
     this.initAnimSpeedButtons();
     this.initCurveButtons();
@@ -199,7 +198,7 @@ export class App {
   }
 
   animate(selectedAnimation) {
-    console.log(this.selectedAnimation);
+    // console.log(this.selectedAnimation);
     switch (selectedAnimation) {
       case "fadeIn":
         gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });
@@ -252,18 +251,28 @@ export class App {
         break;
 
       case "rotate":
-        console.log(gsap.getProperty(this.motionTargets[0], "rotation"));
+        // console.log(gsap.getProperty(this.motionTargets[0], "rotation"));
         const angle = gsap.getProperty(this.motionTargets[0], "rotation") == 0 ? 180 : 0;
         gsap.to(this.motionTargets, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
         break;
 
       case "wiggle":
-        console.log('wiggle');
+        // console.log('wiggle');
         const tl = gsap.timeline();
-        tl.to(this.motionTargets, {x:5, duration:this.selectedDuration/6, ease:this.selectedEase})
-        .to(this.motionTargets, {x:-5, duration:this.selectedDuration/6, ease:this.selectedEase, yoyo:true, repeat:3})
-        .to(this.motionTargets, {x:0, duration:this.selectedDuration/6, ease:this.selectedEase});
+        tl.to(this.motionTargets, { x: 5, duration: this.selectedDuration / 6, ease: this.selectedEase })
+          .to(this.motionTargets, { x: -5, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat: 3 })
+          .to(this.motionTargets, { x: 0, duration: this.selectedDuration / 6, ease: this.selectedEase });
         //gsap.to(this.motionTargets, {});
+        break;
+
+      case "expand":
+        // console.log('expand');
+        gsap.to(this.motionTargets[0], { height: 150, ease: this.selectedEase, duration: this.selectedDuration });
+        break;
+
+      case "contract":
+        // console.log('contract', this.motionTargets[0]);
+        gsap.to(this.motionTargets[0], { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
         break;
     }
   }
@@ -279,13 +288,13 @@ export class App {
 
   getScaleUpDelay() {
     const currentScale = gsap.getProperty(this.motionTargets[0], "scale")
-    console.log(currentScale);
+    // console.log(currentScale);
     return currentScale > 1 ? .33 : 0;
   }
 
   getScaleDownDelay() {
     const currentScale = gsap.getProperty(this.motionTargets[0], "scale")
-    console.log(currentScale);
+    // console.log(currentScale);
     return currentScale > 1 ? 0 : .33;
   }
 }
