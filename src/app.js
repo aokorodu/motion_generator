@@ -291,13 +291,15 @@ export class App {
       case "rotate":
         // console.log(gsap.getProperty(this.motionTargets[0], "rotation"));
         const angle = gsap.getProperty(this.motionTargets[0], "rotation") == 0 ? 180 : 0;
-        gsap.to(this.motionTargets, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
+        //gsap.to(this.motionTargets, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
+
+        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
         break;
 
       case "wiggle":
         // console.log('wiggle');
         const tl = gsap.timeline();
-        tl.to(this.motionTargets, { x: 5, duration: this.selectedDuration / 6, ease: this.selectedEase })
+        tl.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: 5, duration: this.selectedDuration / 6, ease: this.selectedEase })
           .to(this.motionTargets, { x: -5, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat: 3 })
           .to(this.motionTargets, { x: 0, duration: this.selectedDuration / 6, ease: this.selectedEase });
         //gsap.to(this.motionTargets, {});
