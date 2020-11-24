@@ -237,6 +237,9 @@ export class App {
 
   animate(selectedAnimation) {
     this.updateSummaryContent();
+    const mt = document.getElementById('mt');
+    mt.setAnimation(selectedAnimation);
+    mt.runAnimation();
     switch (selectedAnimation) {
       case "fadeIn":
         gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });

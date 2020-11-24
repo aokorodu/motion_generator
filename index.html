@@ -16,7 +16,7 @@
     <div class="main-title">Motion Generator</div>
     <div class="ui-holder">
       <div class="animation-type-holder">
-        <div class="section-heading right">motion type</div>
+        <setting-title name="motion type" right></setting-title>
         <setting-button name="slideOutRight" class="type-selection" right></setting-button>
         <setting-button name="slideInRight" class="type-selection" right></setting-button>
         <setting-button name="slideOutLeft" class="type-selection" right></setting-button>
@@ -27,10 +27,10 @@
         <setting-button name="slideInDown" class="type-selection" right></setting-button>
         <setting-button name="scaleUp" class="type-selection" right></setting-button>
         <setting-button name="scaleDown" class="type-selection" right></setting-button>
-        <setting-button name="rotate" class="type-selection" right></setting-button>
-        <setting-button name="wiggle" class="type-selection" right></setting-button>
         <setting-button name="expand" class="type-selection" right></setting-button>
         <setting-button name="contract" class="type-selection" right></setting-button>
+        <setting-button name="rotate" class="type-selection" right></setting-button>
+        <setting-button name="wiggle" class="type-selection" right></setting-button>
         <setting-button name="fadeOut" class="type-selection" right></setting-button>
         <setting-button name="fadeIn" class="type-selection" right></setting-button>
         
@@ -40,29 +40,30 @@
           <div id="motion-target" class="box default-border"><span class="input" role="textbox" contenteditable>Vanguard</span></div>
           <div id="motion-target-2" class="box default-border"><span class="input" role="textbox" contenteditable>Experience</span></div>
           <div id="motion-target-3" class="box default-border"><span class="input" role="textbox" contenteditable>Team</span></div>
+          <motion-target id="mt" active></motion-target>
         </div>
         <div id="summary-content">-</div>
       </div>
       <div class="animation-type-holder">
-        <div class="section-heading">duration</div>
+        <setting-title name="duration"></setting-title>
         <setting-button name="verySlow" class="speed-selection"></setting-button>
         <setting-button name="slow" class="speed-selection"></setting-button>
         <setting-button name="normal" class="speed-selection" active></setting-button>
         <setting-button name="fast" class="speed-selection"></setting-button>
         <setting-button name="veryFast" class="speed-selection"></setting-button>
         <setting-button name="instant" class="speed-selection"></setting-button>
-        <div class="section-heading">easing</div>
+        <setting-title name="easing"></setting-title>
         <setting-button name="normal" class="curve-selection" active></setting-button>
         <setting-button name="linear" class="curve-selection"></setting-button>
         <setting-button name="reveal" class="curve-selection"></setting-button>
         <setting-button name="emphasis" class="curve-selection"></setting-button>
         <setting-button name="energetic" class="curve-selection"></setting-button>
-        <div class="section-heading">view</div>
+        <setting-title name="view"></setting-title>
         <setting-button name="- O -" class="view-selection"></setting-button>
         <setting-button name="- O O -" class="view-selection"></setting-button>
         <setting-button name="- O O O -" class="view-selection" active></setting-button>
         <setting-button name="text" class="view-selection"></setting-button>
-        <div class="section-heading">stagger duration</div>
+        <setting-title name="stagger duration"></setting-title>
         <setting-button name="stagger-very-slow" class="stagger-selection"></setting-button>
         <setting-button name="stagger-slow" class="stagger-selection"></setting-button>
         <setting-button name="stagger-normal" class="stagger-selection"></setting-button>
