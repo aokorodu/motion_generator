@@ -19,8 +19,7 @@ template.innerHTML = `
   }
 
   .default-border {
-    border: 2px solid #5e5e5e;
-    background-color: #eaeaea;
+    border: 1px solid #5e5e5e;
   }
 
 </style>
