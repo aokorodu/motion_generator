@@ -16,7 +16,6 @@ template.innerHTML = `
     margin: 5px;
     color: #333333;
     background-color: transparent;
-    border-radius: 8px;
   }
 
   .default-border {
@@ -30,18 +29,17 @@ template.innerHTML = `
 </div>
 `;
 
-class MotionTargetComponent extends HTMLElement{
-  constructor(){
+class MotionTargetComponent extends HTMLElement {
+  constructor() {
     super();
     this.active = this.getAttribute("active") != null ? true : false;
-    this.attachShadow({mode: 'open'});
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-
     this.box = this.shadowRoot.querySelector('.box');
 
     // ANIMATION PROPERTIES
     //  left right up down origin
-    this.slideDistance = 50;
+    this.slideDistance = 25;
     this.left = { x: -this.slideDistance, y: 0 };
     this.right = { x: this.slideDistance, y: 0 };
     this.up = { x: 0, y: -this.slideDistance, };
@@ -49,24 +47,13 @@ class MotionTargetComponent extends HTMLElement{
     this.origin = { x: 0, y: 0 };
 
     // easing
-    this.normalEase = "Sine.easeInOut";
-    this.emphasis = "back.inOut";
-    this.energetic = "elastic.inOut";
-    this.linear = "linear";
-    this.reveal = "Power4.easeInOut"
     this.selectedEase = this.normalEase;
 
     // duration
-    this.verySlow = 1.33;
-    this.slow = .99;
-    this.normal = .66;
-    this.fast = .33;
-    this.veryFast = .15;
-    this.instant = 0;
     this.selectedDuration = this.normal;
   }
 
-  setAnimation(animation, duration, ease ){
+  setAnimation(animation, duration, ease) {
     this.selectedAnimation = animation;
     this.selectedDuration = duration
     this.selectedEase = ease;
@@ -75,41 +62,41 @@ class MotionTargetComponent extends HTMLElement{
   runAnimation() {
     switch (this.selectedAnimation) {
       case "fadeIn":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       case "fadeOut":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       // in
       case "slideInRight":
-        gsap.fromTo(this.box, { x: this.left.x, y: this.left.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay()});
+        gsap.fromTo(this.box, { x: this.left.x, y: this.left.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       case "slideInLeft":
-        gsap.fromTo(this.box, { x: this.right.x, y: this.right.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay()});
+        gsap.fromTo(this.box, { x: this.right.x, y: this.right.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       case "slideInUp":
-        gsap.fromTo(this.box, { x: this.down.x, y: this.down.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay()});
+        gsap.fromTo(this.box, { x: this.down.x, y: this.down.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       case "slideInDown":
-        gsap.fromTo(this.box, { x: this.up.x, y: this.up.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay()});
+        gsap.fromTo(this.box, { x: this.up.x, y: this.up.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       // out
       case "slideOutRight":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.right.x, y: this.right.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.right.x, y: this.right.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       case "slideOutLeft":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.left.x, y: this.left.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.left.x, y: this.left.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       case "slideOutUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.up.x, y: this.up.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.up.x, y: this.up.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       case "slideOutDown":
@@ -117,16 +104,16 @@ class MotionTargetComponent extends HTMLElement{
         break;
 
       case "scaleUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.5, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.5, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleDown":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay()});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
         break;
 
       case "rotate":
         const angle = gsap.getProperty(this.box, "rotation") == 0 ? 180 : 0;
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration });
         break;
 
       case "wiggle":
@@ -137,11 +124,13 @@ class MotionTargetComponent extends HTMLElement{
         break;
 
       case "expand":
-        gsap.to(this.box, { height: 150, ease: this.selectedEase, duration: this.selectedDuration });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { height: 150, ease: this.selectedEase, duration: this.selectedDuration });
         break;
 
       case "contract":
-        gsap.to(this.box, { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
+        //gsap.to(this.box, { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
+
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
         break;
     }
   }
@@ -164,6 +153,11 @@ class MotionTargetComponent extends HTMLElement{
     const currentScale = gsap.getProperty(this.box, "scale")
     return currentScale > 1 ? 0 : .33;
   }
+
+  border(bool) {
+    bool ? this.box.classList.add('default-border') : this.box.classList.remveo('default-border')
+  }
+
 }
 
 window.customElements.define('motion-target', MotionTargetComponent)

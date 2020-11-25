@@ -12,12 +12,6 @@ export class App {
     this.selectedAnimation = "";
     this.motionTargets = document.querySelectorAll('.box');
     this.summaryContent = document.getElementById('summary-content');
-    this.slideDistance = 50;
-    this.left = { x: -this.slideDistance, y: 0 };
-    this.right = { x: this.slideDistance, y: 0 };
-    this.up = { x: 0, y: -this.slideDistance, };
-    this.down = { x: 0, y: this.slideDistance, };
-    this.origin = { x: 0, y: 0 };
 
     // easing
     this.normalEase = "Sine.easeInOut";

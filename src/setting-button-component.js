@@ -6,7 +6,7 @@ template.innerHTML = `
     background-color: #eaeaea;
     color: rgb(42, 42, 42);
     padding: 4px;
-    font-size: 14px;
+    font-size: 12px;
     text-align: left;
     margin-bottom: 0;
     border: none;
