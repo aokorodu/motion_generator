@@ -148,7 +148,7 @@ export class App {
       button.addEventListener('click', (e) => {
         this.selectedAnimation = button.name;
         this.selectButton(button, "type-selection")
-        this.animate(this.selectedAnimation);
+        this.animate();
       })
     }
   }
@@ -159,7 +159,7 @@ export class App {
       button.addEventListener('click', (e) => {
         this.selectedDuration = this.getSpeed(button.name);
         this.selectButton(button, "speed-selection");
-        this.animate(this.selectedAnimation);
+        this.animate();
       })
     }
   }
@@ -170,7 +170,7 @@ export class App {
       button.addEventListener('click', (e) => {
         this.selectedEase = this.getCurve(button.name);
         this.selectButton(button, "curve-selection");
-        this.animate(this.selectedAnimation);
+        this.animate();
       })
     }
   }
@@ -226,7 +226,7 @@ export class App {
       button.addEventListener('click', (e) => {
         this.staggerDuration = this.getStagger(button.name);
         this.selectButton(button, "stagger-selection");
-        this.animate(this.selectedAnimation);
+        this.animate();
       })
     }
   }
@@ -235,109 +235,10 @@ export class App {
     this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase}`;
   }
 
-  animate(selectedAnimation) {
+  animate() {
     this.updateSummaryContent();
     const mt = document.getElementById('mt');
-    mt.setAnimation(selectedAnimation);
+    mt.setAnimation(this.selectedAnimation, this.selectedDuration, this.selectedEase);
     mt.runAnimation();
-    switch (selectedAnimation) {
-      case "fadeIn":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "fadeOut":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay(), stagger: this.staggerDuration });
-        break;
-
-      // in
-      case "slideInRight":
-        gsap.fromTo(this.motionTargets, { x: this.left.x, y: this.left.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideInLeft":
-        gsap.fromTo(this.motionTargets, { x: this.right.x, y: this.right.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideInUp":
-        gsap.fromTo(this.motionTargets, { x: this.down.x, y: this.down.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideInDown":
-        gsap.fromTo(this.motionTargets, { x: this.up.x, y: this.up.y, opacity: 0 }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay(), stagger: { each: this.staggerDuration, from: "end" } });
-        break;
-
-      // out
-      case "slideOutRight":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.right.x, y: this.right.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideOutLeft":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.left.x, y: this.left.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideOutUp":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.up.x, y: this.up.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "slideOutDown":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.down.x, y: this.down.y, opacity: 0, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay(), stagger: { each: this.staggerDuration, from: "end" } });
-        break;
-
-      case "scaleUp":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.5, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "scaleDown":
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay(), stagger: this.staggerDuration });
-        break;
-
-      case "rotate":
-        // console.log(gsap.getProperty(this.motionTargets[0], "rotation"));
-        const angle = gsap.getProperty(this.motionTargets[0], "rotation") == 0 ? 180 : 0;
-        //gsap.to(this.motionTargets, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
-
-        gsap.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration, stagger: this.staggerDuration });
-        break;
-
-      case "wiggle":
-        // console.log('wiggle');
-        const tl = gsap.timeline();
-        tl.fromTo(this.motionTargets, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: 5, duration: this.selectedDuration / 6, ease: this.selectedEase })
-          .to(this.motionTargets, { x: -5, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat: 3 })
-          .to(this.motionTargets, { x: 0, duration: this.selectedDuration / 6, ease: this.selectedEase });
-        //gsap.to(this.motionTargets, {});
-        break;
-
-      case "expand":
-        // console.log('expand');
-        gsap.to(this.motionTargets[0], { height: 150, ease: this.selectedEase, duration: this.selectedDuration });
-        break;
-
-      case "contract":
-        // console.log('contract', this.motionTargets[0]);
-        gsap.to(this.motionTargets[0], { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
-        break;
-    }
-  }
-
-  getFadeInDelay() {
-    return this.motionTargets[0].style.opacity == "0" ? 0 : .33;
-
-  }
-
-  getFadeOutDelay() {
-    return this.motionTargets[0].style.opacity == "0" ? .33 : 0;
-  }
-
-  getScaleUpDelay() {
-    const currentScale = gsap.getProperty(this.motionTargets[0], "scale")
-    // console.log(currentScale);
-    return currentScale > 1 ? .33 : 0;
-  }
-
-  getScaleDownDelay() {
-    const currentScale = gsap.getProperty(this.motionTargets[0], "scale")
-    // console.log(currentScale);
-    return currentScale > 1 ? 0 : .33;
   }
 }

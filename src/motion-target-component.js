@@ -66,8 +66,10 @@ class MotionTargetComponent extends HTMLElement{
     this.selectedDuration = this.normal;
   }
 
-  setAnimation(newAnimation){
-    this.selectedAnimation = newAnimation;
+  setAnimation(animation, duration, ease ){
+    this.selectedAnimation = animation;
+    this.selectedDuration = duration
+    this.selectedEase = ease;
   }
 
   runAnimation() {
