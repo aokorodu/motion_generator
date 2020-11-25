@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { CustomEase } from "gsap/CustomEase";
-//import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/Draggable";
 
 export class App {
   constructor() {

@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { Draggable } from "gsap/Draggable";
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -34,22 +35,38 @@ class MotionTargetComponent extends HTMLElement {
     this.active = this.getAttribute("active") != null ? true : false;
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.box = this.shadowRoot.querySelector('.box');
+    this.box = this.shadowRoot.getElementById('motion-target');
+    gsap.registerPlugin(Draggable);
+    Draggable.create(this.box, {type:"x,y", onDragEnd:()=>{this.dragEnd()}});
 
+    
     // ANIMATION PROPERTIES
     //  left right up down origin
     this.slideDistance = 25;
-    this.left = { x: -this.slideDistance, y: 0 };
-    this.right = { x: this.slideDistance, y: 0 };
-    this.up = { x: 0, y: -this.slideDistance, };
-    this.down = { x: 0, y: this.slideDistance, };
     this.origin = { x: 0, y: 0 };
-
+    this.left, this.right, this.up, this.down;
+    
     // easing
     this.selectedEase = this.normalEase;
 
     // duration
     this.selectedDuration = this.normal;
+
+    this.initializePoints();
+  }
+
+  initializePoints(){
+    this.left = {x:this.origin.x-this.slideDistance, y:this.origin.y};
+    this.right = {x:this.origin.x+this.slideDistance, y:this.origin.y};
+    this.up = { x: this.origin.x, y: this.origin.y-this.slideDistance};
+    this.down = { x:this.origin.x, y: this.origin.y+this.slideDistance };
+  }
+
+  dragEnd(){
+    console.log('drag end', gsap.getProperty(this.box, "x"));
+    this.origin.x = gsap.getProperty(this.box, "x");
+    this.origin.y = gsap.getProperty(this.box, "y");
+    this.initializePoints();
   }
 
   setAnimation(animation, duration, ease) {
@@ -124,10 +141,12 @@ class MotionTargetComponent extends HTMLElement {
         break;
 
       case "wiggle":
+        const rightX = this.origin.x + 5;
+        const leftX = this.origin.x - 5;
         const tl = gsap.timeline();
-        tl.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: 5, duration: this.selectedDuration / 6, ease: this.selectedEase })
-          .to(this.box, { x: -5, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat: 3 })
-          .to(this.box, { x: 0, duration: this.selectedDuration / 6, ease: this.selectedEase });
+        tl.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { x: rightX, duration: this.selectedDuration / 6, ease: this.selectedEase })
+          .to(this.box, { x: leftX, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat: 3 })
+          .to(this.box, { x: this.origin.x, duration: this.selectedDuration / 6, ease: this.selectedEase });
         break;
 
       case "expand":
