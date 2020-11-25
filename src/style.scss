@@ -4,6 +4,7 @@ $font-family: "Linotype Univers", sans-serif;
 $slow: 600ms;
 $normal: 300ms;
 $fast: 100ms;
+$size: 500px;
 
 * {
     box-sizing: border-box;
@@ -39,8 +40,6 @@ $fast: 100ms;
     width: 150px;
 }
 
-
-
 .generator-content{
   position: relative;
   display: flex;
@@ -55,13 +54,12 @@ $fast: 100ms;
   font-weight: 100;
   max-width: 450px;
   min-height: 50px;
-
 }
 
 .generator-holder{
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: $size;
+    height: $size;
     border: 1px solid #717070;
     display: flex;
     flex-direction: column;
@@ -84,14 +82,6 @@ $fast: 100ms;
     background-color: transparent;
     border-radius: 8px;
 }
-
-.default-border {
-  border: 2px solid #5e5e5e;
-  background-color: #eaeaea;
-}
-
-
-
 
 /* opacity */
 
