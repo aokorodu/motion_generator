@@ -6,7 +6,7 @@ template.innerHTML = `
 <style>
   .box {
     position: relative;
-    min-width: 150px;
+    min-width: 200px;
     height: auto;
     font-size: 1.5rem;
     padding: 5px;
@@ -25,7 +25,7 @@ template.innerHTML = `
 
 </style>
 <div id="motion-target" class="box default-border">
-  <span class="input" role="textbox" contenteditable>Vanguard</span>
+  <span class="input" role="textbox" contenteditable><slot /></span>
 </div>
 `;
 
