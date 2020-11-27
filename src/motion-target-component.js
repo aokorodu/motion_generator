@@ -75,6 +75,12 @@ class MotionTargetComponent extends HTMLElement {
     this.selectedEase = ease;
   }
 
+  updateSlideDistance(newdistance){
+    console.log('new distance: ', newdistance)
+    this.slideDistance = newdistance;
+    this.initializePoints();
+  }
+
   runAnimation() {
     switch (this.selectedAnimation) {
       case "fadeIn":

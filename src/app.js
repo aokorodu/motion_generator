@@ -51,6 +51,16 @@ export class App {
     this.initCustomEase();
     this.initProps();
     this.initButtons();
+    this.initDistanceComponent();
+  }
+
+  initDistanceComponent(){
+    const dc = document.getElementById("distance-component");
+    dc.addEventListener('newDistance', (e)=>{
+      console.log(e.detail.value);
+      const mt = document.getElementById('mt');
+      mt.updateSlideDistance(e.detail.value);
+    })
   }
 
   initCustomEase() {
