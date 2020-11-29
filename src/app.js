@@ -57,7 +57,6 @@ export class App {
   initDistanceComponent(){
     const dc = document.getElementById("distance-component");
     dc.addEventListener('newDistance', (e)=>{
-      console.log(e.detail.value);
       const mt = document.getElementById('mt');
       mt.updateSlideDistance(e.detail.value);
     })

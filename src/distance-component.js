@@ -4,11 +4,31 @@ template.innerHTML = `
   .holder {
     width: 100%;
     height: 100px;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #slide-value{
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .label{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: center;
   }
 </style>
 <div class="holder">
+  <div id="slide-value"></div>
   <input id="slider" type="range" value="50" min="0" max="300" />
+  <div class="label">slide distance</div>
 </div>
 `;
 
@@ -20,8 +40,12 @@ class DistanceComponent extends HTMLElement {
 
     this.slider = this.shadowRoot.getElementById('slider');
     this.slider.addEventListener("input", (e)=>{
-      this.dispatchDistanceEvent()
+      this.dispatchDistanceEvent();
+      this.slideValue.innerText = `${this.slider.value}px`;
     })
+
+    this.slideValue = this.shadowRoot.getElementById('slide-value');
+    this.slideValue.innerText = `${this.getAttribute("value")}px`;
   }
 
   dispatchDistanceEvent(){

@@ -3,8 +3,25 @@
     width: 150px;
     height: 150px;
     border: 1 px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #slide-value{
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .label{
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
   }
 </style>
 <div class="holder">
+  <div id="slide-value"></div>
   <input type="range" value="50" min="0" max="300" />
+  <div>slide distance</div>
 </div>

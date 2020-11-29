@@ -67,6 +67,7 @@ class MotionTargetComponent extends HTMLElement {
     this.origin.x = gsap.getProperty(this.box, "x");
     this.origin.y = gsap.getProperty(this.box, "y");
     this.initializePoints();
+    console.log('origin, left, right: ', this.origin, this.left, this.right);
   }
 
   setAnimation(animation, duration, ease) {
@@ -76,8 +77,7 @@ class MotionTargetComponent extends HTMLElement {
   }
 
   updateSlideDistance(newdistance){
-    console.log('new distance: ', newdistance)
-    this.slideDistance = newdistance;
+    this.slideDistance = Number(newdistance);
     this.initializePoints();
   }
 
