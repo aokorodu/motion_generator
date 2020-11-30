@@ -154,7 +154,7 @@ class MotionTargetComponent extends HTMLElement {
 
       case "rotate":
         const angle = gsap.getProperty(this.box, "rotation") == 0 ? 180 : 0;
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { rotate: angle, ease: this.selectedEase, duration: this.selectedDuration });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { rotate: angle, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration });
         break;
 
       case "wiggle":
