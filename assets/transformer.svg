@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 102 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>transformer</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="transformer" stroke="#000000">
+            <rect id="outer" fill="#FFFFFF" stroke="none" x="0" y="0" width="100" height="100"></rect>
+            <rect id="inner" x="10" y="10" width="80" height="80"></rect>
+            <g id="upper-left" class="ball" transform="translate(5.000000, 5.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="upper-middle" class="ball" transform="translate(45.000000, 5.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="upper-right" class="ball" transform="translate(85.000000, 5.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="middle-left" class="ball" transform="translate(5.000000, 45.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="middle-middle" class="ball" transform="translate(45.000000, 45.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="middle-right" class="ball" transform="translate(85.000000, 45.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="lower-left" class="ball" transform="translate(5.000000, 85.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="lower-middle" class="ball" transform="translate(45.000000, 85.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+            <g id="lower-right" class="ball" transform="translate(85.000000, 85.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

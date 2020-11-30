@@ -52,6 +52,19 @@ export class App {
     this.initProps();
     this.initButtons();
     this.initDistanceComponent();
+    this.initScaleComponent();
+  }
+
+  initScaleComponent(){
+    const sc = document.getElementById("scale-component");
+    sc.addEventListener('newTransformOrigin', (e)=>{
+      
+      let str = e.detail.value.replace("-", " ");
+      const mt = document.getElementById('mt');
+      mt.updateOrigin(str);
+    })
+    
+
   }
 
   initDistanceComponent(){

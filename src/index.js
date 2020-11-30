@@ -5,6 +5,7 @@ import { SettingTitleComponent} from './setting-title-component';
 import { SettingSubtitleComponent} from './setting-subtitle-component';
 import { MotionTargetComponent } from './motion-target-component';
 import { DistanceComponent } from './distance-component';
+import { ScaleComponent } from './scale-component';
 console.log('hello world');
 
 const app = new App();
