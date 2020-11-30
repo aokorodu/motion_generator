@@ -10,8 +10,10 @@ export class App {
     this.viewButtons = [];
     this.staggerButtons = [];
     this.selectedAnimation = "";
-    this.motionTargets = document.querySelectorAll('.box');
     this.summaryContent = document.getElementById('summary-content');
+
+    //this.motionTargets = document.querySelectorAll('.box');
+    this.motionTarget = document.getElementById('mt');
 
     // easing
     this.normalEase = "Sine.easeInOut";
@@ -45,6 +47,9 @@ export class App {
     this.threeBoxView = "three-box-view";
     this.textView = "text-view";
     this.selectedView = this.boxView;
+
+    // origin
+    this.transformOrigin = "center center"
   }
 
   init() {
@@ -59,9 +64,10 @@ export class App {
     const sc = document.getElementById("scale-component");
     sc.addEventListener('newTransformOrigin', (e)=>{
       
-      let str = e.detail.value.replace("-", " ");
-      const mt = document.getElementById('mt');
-      mt.updateOrigin(str);
+      this.transformOrigin = e.detail.value.replace("-", " ");
+      this.motionTarget.updateOrigin(this.transformOrigin);
+      this.updateSummaryContent();
+      this.animate();
     })
     
 
@@ -70,8 +76,7 @@ export class App {
   initDistanceComponent(){
     const dc = document.getElementById("distance-component");
     dc.addEventListener('newDistance', (e)=>{
-      const mt = document.getElementById('mt');
-      mt.updateSlideDistance(e.detail.value);
+      this.motionTarget.updateSlideDistance(e.detail.value);
     })
   }
 
@@ -248,13 +253,12 @@ export class App {
   }
 
   updateSummaryContent(){
-    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase}`;
+    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase} transform-origin: ${this.transformOrigin}`;
   }
 
   animate() {
     this.updateSummaryContent();
-    const mt = document.getElementById('mt');
-    mt.setAnimation(this.selectedAnimation, this.selectedDuration, this.selectedEase);
-    mt.runAnimation();
+    this.motionTarget.setAnimation(this.selectedAnimation, this.selectedDuration, this.selectedEase);
+    this.motionTarget.runAnimation();
   }
 }

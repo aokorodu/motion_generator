@@ -20,6 +20,7 @@ template.innerHTML = `
 
 .selected {
   fill: #000000;
+  transition: fill 200ms linear;
 }
 </style>
 <div class="holder">
@@ -40,7 +41,7 @@ template.innerHTML = `
             <g id="center-left" class="ball" transform="translate(5.000000, 45.000000)" fill="#FFFFFF">
                 <circle cx="5" cy="5" r="5"></circle>
             </g>
-            <g id="center-center" class="ball" transform="translate(45.000000, 45.000000)" fill="#000000">
+            <g id="center-center" class="ball" transform="translate(45.000000, 45.000000)" fill="#FFFFFF">
                 <circle cx="5" cy="5" r="5"></circle>
             </g>
             <g id="center-right" class="ball" transform="translate(85.000000, 45.000000)" fill="#FFFFFF">
@@ -68,7 +69,7 @@ class ScaleComponent extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.balls = this.shadowRoot.querySelectorAll(".ball");
-    console.log('balls: ', this.balls);
+    this.initSelectedBall();
     for (let ball of this.balls) {
       ball.addEventListener("click", () => {
         console.log(ball.getAttribute("id"));
@@ -76,6 +77,10 @@ class ScaleComponent extends HTMLElement {
         this.selectBall(ball);
       })
     }
+  }
+
+  initSelectedBall(){
+    this.selectBall(this.balls[4]);
   }
 
   selectBall(selectedBall) {
