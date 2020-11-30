@@ -6,7 +6,19 @@ template.innerHTML = `
     font-weight: 600;
     font-variant: small-caps;
     padding: 4px;
+    user-select: none; 
   }
+
+  .setting-subtitle::after {
+    position: absolute;
+    content:"+";
+    right: 0;
+  }
+
+  .active::after {
+    content:"-";
+  }
+
   .right{
     text-align: right;
   }

@@ -58,24 +58,40 @@ export class App {
     this.initButtons();
     this.initDistanceComponent();
     this.initScaleComponent();
+    this.initAccordians();
   }
 
-  initScaleComponent(){
+  initAccordians() {
+    const accordians = document.querySelectorAll('.accordian');
+    for (let accord of accordians) {
+      accord.addEventListener("click", () => {
+        console.log('click')
+        const panel = accord.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      })
+    }
+  }
+
+  initScaleComponent() {
     const sc = document.getElementById("scale-component");
-    sc.addEventListener('newTransformOrigin', (e)=>{
-      
+    sc.addEventListener('newTransformOrigin', (e) => {
+
       this.transformOrigin = e.detail.value.replace("-", " ");
       this.motionTarget.updateOrigin(this.transformOrigin);
       this.updateSummaryContent();
       this.animate();
     })
-    
+
 
   }
 
-  initDistanceComponent(){
+  initDistanceComponent() {
     const dc = document.getElementById("distance-component");
-    dc.addEventListener('newDistance', (e)=>{
+    dc.addEventListener('newDistance', (e) => {
       this.motionTarget.updateSlideDistance(e.detail.value);
     })
   }
@@ -252,7 +268,7 @@ export class App {
     }
   }
 
-  updateSummaryContent(){
+  updateSummaryContent() {
     this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase} transform-origin: ${this.transformOrigin}`;
   }
 

@@ -37,6 +37,7 @@ $size: 500px;
 }
 
 .animation-type-holder{
+  position: relative;
     width: 250px;
 }
 
@@ -64,6 +65,12 @@ $size: 500px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.panel{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease-in-out;
 }
 
 /* opacity */
