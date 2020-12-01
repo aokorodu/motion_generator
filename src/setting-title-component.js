@@ -2,11 +2,11 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
   .section-heading {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 800;
     font-variant: small-caps;
     text-decoration: underline;
-    padding: 4px;
+    padding: 5px;
   }
   .right{
     text-align: right;

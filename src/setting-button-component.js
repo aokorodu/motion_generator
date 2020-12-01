@@ -5,7 +5,7 @@ template.innerHTML = `
     width: 100%;
     background-color: #eaeaea;
     color: rgb(42, 42, 42);
-    padding: 6px;
+    padding: 5px 0 5px 15px;
     font-size: 12px;
     text-align: left;
     margin-bottom: 0;

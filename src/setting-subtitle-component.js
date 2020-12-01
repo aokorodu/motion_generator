@@ -5,7 +5,7 @@ template.innerHTML = `
     font-size: 14px;
     font-weight: 600;
     font-variant: small-caps;
-    padding: 4px;
+    padding: 5px 0 5px 10px;
     user-select: none; 
   }
 
