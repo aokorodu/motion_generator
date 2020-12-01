@@ -12,7 +12,7 @@ template.innerHTML = `
   .setting-subtitle::after {
     position: absolute;
     content:"+";
-    right: 0;
+    right: 20px;
   }
 
   .active::after {

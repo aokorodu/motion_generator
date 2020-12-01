@@ -7,7 +7,6 @@ template.innerHTML = `
     font-variant: small-caps;
     text-decoration: underline;
     padding: 4px;
-    margin-top: 10px;
   }
   .right{
     text-align: right;

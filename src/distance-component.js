@@ -4,8 +4,7 @@ template.innerHTML = `
   .holder {
     width: 100%;
     height: 100px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #cccccc;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +26,7 @@ template.innerHTML = `
 </style>
 <div class="holder">
   <div id="slide-value"></div>
-  <input id="slider" type="range" value="50" min="0" max="300" />
+  <input id="slider" type="range" value="50" min="0" max="300" step="10" />
   <div class="label">slide distance</div>
 </div>
 `;
@@ -40,6 +39,9 @@ class DistanceComponent extends HTMLElement {
 
     this.slider = this.shadowRoot.getElementById('slider');
     this.slider.addEventListener("input", (e)=>{
+      this.slideValue.innerText = `${this.slider.value}px`;
+    })
+    this.slider.addEventListener("mouseup", (e)=>{
       this.dispatchDistanceEvent();
       this.slideValue.innerText = `${this.slider.value}px`;
     })
@@ -51,6 +53,7 @@ class DistanceComponent extends HTMLElement {
   dispatchDistanceEvent(){
     this.dispatchEvent(new CustomEvent('newDistance', { bubbles: true, composed: true, detail: { value: this.slider.value } }))
   }
+
 }
 
 window.customElements.define('distance-component', DistanceComponent);

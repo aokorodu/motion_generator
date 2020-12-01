@@ -93,6 +93,8 @@ export class App {
     const dc = document.getElementById("distance-component");
     dc.addEventListener('newDistance', (e) => {
       this.motionTarget.updateSlideDistance(e.detail.value);
+      this.animate();
+      // TODO: summary text that shows distance
     })
   }
 
@@ -269,7 +271,7 @@ export class App {
   }
 
   updateSummaryContent() {
-    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase} transform-origin: ${this.transformOrigin}`;
+    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase} | transform-origin: ${this.transformOrigin}`;
   }
 
   animate() {
