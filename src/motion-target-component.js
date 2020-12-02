@@ -23,8 +23,12 @@ template.innerHTML = `
     border: 1px solid #5e5e5e;
   }
 
+  .interactive {
+    border: 1px solid black;
+  }
+
 </style>
-<div id="motion-target" class="box default-border">
+<div id="motion-target" class="box interactive">
   <span class="input" role="textbox" contenteditable><slot /></span>
 </div>
 `;
@@ -59,6 +63,7 @@ class MotionTargetComponent extends HTMLElement {
     this.transformOrigin = "center center";
 
     this.initializePoints();
+    this.addInteractivity();
   }
 
   initializePoints(){
@@ -91,6 +96,30 @@ class MotionTargetComponent extends HTMLElement {
     this.slideDistance = Number(newdistance);
     this.initializePoints();
   }
+
+  addInteractivity(){
+    this.box.addEventListener("mouseenter", ()=>{
+      this.rollover();
+    })
+    this.box.addEventListener("mouseleave", ()=>{
+      this.rollOut();
+    })
+  }
+
+  rollover(){
+    console.log('over');
+    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
+    gsap.to(this.box,{duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 3px'});
+  }
+
+  rollOut(){
+    console.log('leave');
+      //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
+      //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, borderWidth: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
+      gsap.to(this.box,{duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 0'});
+  }
+
+
 
   runAnimation() {
     switch (this.selectedAnimation) {
@@ -154,7 +183,7 @@ class MotionTargetComponent extends HTMLElement {
 
       case "rotate":
         const angle = gsap.getProperty(this.box, "rotation") == 0 ? 180 : 0;
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { rotate: angle, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { rotate: angle, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
         break;
 
       case "wiggle":

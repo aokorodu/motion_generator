@@ -59,6 +59,11 @@ export class App {
     this.initDistanceComponent();
     this.initScaleComponent();
     this.initAccordians();
+    this.initMotionTarget();
+  }
+
+  initMotionTarget(){
+    this.motionTarget.setAnimation(this.selectedAnimation, this.selectedDuration, this.selectedEase);
   }
 
   initAccordians() {
