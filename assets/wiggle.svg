@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Wiggle</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Wiggle">
+            <path d="M24.464062,40.5 C21.7973954,42.4607843 20.464062,45.7941176 20.464062,50.5 C20.464062,55.2058824 21.7973954,58.5392157 24.464062,60.5" id="Line" stroke="#005392" stroke-width="3" stroke-linecap="square"></path>
+            <path d="M14.464062,40.5 C11.7973954,42.4607843 10.464062,45.7941176 10.464062,50.5 C10.464062,55.2058824 11.7973954,58.5392157 14.464062,60.5" id="Line" stroke="#005392" stroke-width="3" opacity="0.5" stroke-linecap="square"></path>
+            <path d="M79.464062,39.5 C76.7973954,41.4607843 75.464062,44.7941176 75.464062,49.5 C75.464062,54.2058824 76.7973954,57.5392157 79.464062,59.5" id="Line" stroke="#005392" stroke-width="3" stroke-linecap="square" transform="translate(77.464062, 49.500000) scale(-1, 1) translate(-77.464062, -49.500000) "></path>
+            <path d="M89.464062,39.5 C86.7973954,41.4607843 85.464062,44.7941176 85.464062,49.5 C85.464062,54.2058824 86.7973954,57.5392157 89.464062,59.5" id="Line" stroke="#005392" stroke-width="3" opacity="0.50420149" stroke-linecap="square" transform="translate(87.464062, 49.500000) scale(-1, 1) translate(-87.464062, -49.500000) "></path>
+            <rect id="Rectangle" fill="#005392" transform="translate(50.000000, 50.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -50.000000) " x="33" y="33" width="34" height="34" rx="2"></rect>
+        </g>
+    </g>
+</svg>
