@@ -205,10 +205,10 @@ class MotionTargetComponent extends HTMLElement {
 
       case "pulse":
         let currentScale = gsap.getProperty(this.box, "scale");
-        let pulseScale = currentScale * 1.2;
+        let pulseScale = currentScale * 1.1;
         let ntl = gsap.timeline();
-        ntl.fromTo(this.box, { opacity: 1, scale:currentScale, transformOrigin: this.transformOrigin }, { scale:pulseScale, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 3, ease: this.selectedEase })
-          .to(this.box, { opacity: 1, scale:1, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 3, ease: this.selectedEase, yoyo: true, repeat:2 })
+        ntl.fromTo(this.box, { opacity: 1, scale:currentScale, transformOrigin: this.transformOrigin }, { scale:pulseScale, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 6, ease: this.selectedEase })
+          .to(this.box, { opacity: 1, scale:1, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 6, ease: this.selectedEase, yoyo: true, repeat:2 })
         break;
 
       case "expand":
