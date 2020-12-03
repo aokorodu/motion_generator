@@ -4,7 +4,7 @@ template.innerHTML = `
 .holder {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 250px;
   border-bottom: 1px solid #cccccc;
 }
 .diagram{
