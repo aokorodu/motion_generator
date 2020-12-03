@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FadeIn</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#8A2423" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#8A2423" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FadeIn">
+            <rect id="Rectangle" fill="url(#linearGradient-1)" transform="translate(50.000000, 50.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -50.000000) " x="33" y="33" width="34" height="34" rx="2"></rect>
+        </g>
+    </g>
+</svg>

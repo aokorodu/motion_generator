@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ScaleOut</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ScaleOut">
+            <rect id="Rectangle" fill-opacity="0.15" fill="#0074C9" transform="translate(50.000000, 50.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -50.000000) " x="33" y="33" width="34" height="34" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.15" fill="#0074C9" transform="translate(50.500000, 49.500000) scale(-1, -1) rotate(-90.000000) translate(-50.500000, -49.500000) " x="37" y="36" width="27" height="27" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.15" fill="#0074C9" transform="translate(50.000000, 49.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -49.000000) " x="40" y="39" width="20" height="20" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.75" fill="#0074C9" transform="translate(50.500000, 49.500000) scale(-1, -1) rotate(-90.000000) translate(-50.500000, -49.500000) " x="44" y="43" width="13" height="13" rx="2"></rect>
+            <polygon id="Triangle" fill="#0074C9" transform="translate(79.000000, 50.000000) scale(-1, 1) rotate(-270.000000) translate(-79.000000, -50.000000) " points="79 46 83 54 75 54"></polygon>
+            <polygon id="Triangle" fill="#0074C9" transform="translate(22.000000, 50.000000) rotate(-270.000000) translate(-22.000000, -50.000000) " points="22 46 26 54 18 54"></polygon>
+            <polygon id="Triangle" fill="#0074C9" transform="translate(50.500000, 78.500000) scale(1, -1) rotate(-540.000000) translate(-50.500000, -78.500000) " points="50.5 74.5 54.5 82.5 46.5 82.5"></polygon>
+            <polygon id="Triangle" fill="#0074C9" transform="translate(50.500000, 21.500000) rotate(-540.000000) translate(-50.500000, -21.500000) " points="50.5 17.5 54.5 25.5 46.5 25.5"></polygon>
+        </g>
+    </g>
+</svg>

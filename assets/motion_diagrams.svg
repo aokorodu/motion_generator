@@ -3,66 +3,41 @@
     <title>motion_diagrams</title>
     <defs>
         <filter id="filter-1">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.393530 0 0 0 0 0.754104 0 0 0 0 0.302331 0 0 0 1.000000 0"></feColorMatrix>
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.392157 0 0 0 0 0.752941 0 0 0 0 0.301961 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-2">
             <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.392157 0 0 0 0 0.752941 0 0 0 0 0.301961 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-3">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.258824 0 0 0 0 0.635294 0 0 0 0 0.929412 0 0 0 1.000000 0"></feColorMatrix>
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.392157 0 0 0 0 0.752941 0 0 0 0 0.301961 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-4">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.971099 0 0 0 0 0.513732 0 0 0 0 0.513732 0 0 0 1.000000 0"></feColorMatrix>
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.393530 0 0 0 0 0.754104 0 0 0 0 0.302331 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-5">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.971099 0 0 0 0 0.513732 0 0 0 0 0.513732 0 0 0 1.000000 0"></feColorMatrix>
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.392157 0 0 0 0 0.752941 0 0 0 0 0.301961 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-6">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.513725 0 0 0 0 0.513725 0 0 0 1.000000 0"></feColorMatrix>
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.258824 0 0 0 0 0.635294 0 0 0 0 0.929412 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
         <filter id="filter-7">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.971099 0 0 0 0 0.513732 0 0 0 0 0.513732 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-8">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.971099 0 0 0 0 0.513732 0 0 0 0 0.513732 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-9">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.513725 0 0 0 0 0.513725 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-10">
             <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.972549 0 0 0 0 0.513725 0 0 0 0 0.513725 0 0 0 1.000000 0"></feColorMatrix>
         </filter>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="motion_diagrams" transform="translate(-0.000000, 0.000000)">
-            <rect id="bg" fill="#D8D8D8" x="4.26325641e-14" y="0.49689441" width="160" height="159.006211"></rect>
-            <g id="slideOut" transform="translate(10.000000, 8.944099)" fill="#42A2ED">
-                <g id="Group" transform="translate(24.500000, 76.613018)">
-                    <g id="slideOutDown" transform="translate(45.500000, 19.875776) rotate(-270.000000) translate(-45.500000, -19.875776) ">
-                        <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="box">
-                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                        </g>
-                    </g>
-                </g>
-                <g id="Group" transform="translate(24.500000, 25.838509)">
-                    <g id="slideOutUp" transform="translate(45.500000, 19.875776) rotate(-90.000000) translate(-45.500000, -19.875776) ">
-                        <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="box">
-                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                        </g>
-                    </g>
-                </g>
-                <g id="slideOutRight" transform="translate(50.000000, 51.180124)">
+            
+            <g id="Group" transform="translate(34.500000, 85.557117)" fill="#42A2ED">
+                <g id="slideOutDown" transform="translate(45.500000, 19.875776) rotate(-270.000000) translate(-45.500000, -19.875776) ">
                     <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
                         <g id="box">
                             <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
@@ -77,44 +52,125 @@
                         <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
                     </g>
                 </g>
-                <g id="Group" transform="translate(0.000000, 51.180124)">
-                    <g id="slideOutLeft" transform="translate(45.500000, 19.875776) rotate(-180.000000) translate(-45.500000, -19.875776) ">
-                        <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
+            </g>
+            <g id="Group" transform="translate(34.500000, 34.782609)" fill="#42A2ED">
+                <g id="slideOutUp" transform="translate(45.500000, 19.875776) rotate(-90.000000) translate(-45.500000, -19.875776) ">
+                    <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
                         <g id="box">
                             <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
                         </g>
                     </g>
-                </g>
-            </g>
-            <g id="slideIn" transform="translate(10.000000, 8.944099)">
-                <g id="slideInLeft" transform="translate(0.000000, 51.180124)" filter="url(#filter-1)">
-                    <g transform="translate(45.500000, 19.875776) rotate(-180.000000) translate(-45.500000, -19.875776) ">
-                        <g id="Group" transform="translate(51.000000, 0.000000)" fill="#42A2ED" opacity="0.249750182">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="Group" transform="translate(26.000000, 0.000000)" fill="#42A2ED" opacity="0.49879633">
-                            <g id="box">
-                                <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
-                            </g>
-                        </g>
-                        <g id="box" fill="#42A2ED">
+                    <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
+                        <g id="box">
                             <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
                         </g>
                     </g>
+                    <g id="box">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
                 </g>
             </g>
-            <g filter="url(#filter-2)" id="scaleIn">
+            <g id="slideOutRight" transform="translate(60.000000, 60.124224)" fill="#42A2ED">
+                <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
+                    <g id="box">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
+                    <g id="box">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+                <g id="box">
+                    <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                </g>
+            </g>
+            <g id="Group" transform="translate(10.000000, 60.124224)" fill="#42A2ED">
+                <g id="slideOutLeft" transform="translate(45.500000, 19.875776) rotate(-180.000000) translate(-45.500000, -19.875776) ">
+                    <g id="Group" transform="translate(51.000000, 0.000000)" opacity="0.249750182">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(26.000000, 0.000000)" opacity="0.49879633">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="box">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="slideInUp" transform="translate(34.500000, 85.557117)" filter="url(#filter-1)">
+                <g transform="translate(45.500000, 19.875776) rotate(-270.000000) translate(-45.500000, -19.875776) ">
+                    <g id="Group" transform="translate(51.000000, 0.000000)" fill="#42A2ED" opacity="0.249750182">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(26.000000, 0.000000)" fill="#42A2ED" opacity="0.49879633">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="box" fill="#42A2ED">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="slideInDown" transform="translate(34.500000, 34.782609)" filter="url(#filter-2)">
+                <g transform="translate(45.500000, 19.875776) rotate(-90.000000) translate(-45.500000, -19.875776) ">
+                    <g id="Group" transform="translate(51.000000, 0.000000)" fill="#42A2ED" opacity="0.249750182">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(26.000000, 0.000000)" fill="#42A2ED" opacity="0.49879633">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="box" fill="#42A2ED">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="slideInRight" transform="translate(60.000000, 60.124224)" filter="url(#filter-3)">
+                <g>
+                    <g id="Group" transform="translate(51.000000, 0.000000)" fill="#42A2ED" opacity="0.249750182">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(26.000000, 0.000000)" fill="#42A2ED" opacity="0.49879633">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="box" fill="#42A2ED">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="slideInLeft" transform="translate(10.000000, 60.124224)" filter="url(#filter-4)">
+                <g transform="translate(45.500000, 19.875776) rotate(-180.000000) translate(-45.500000, -19.875776) ">
+                    <g id="Group" transform="translate(51.000000, 0.000000)" fill="#42A2ED" opacity="0.249750182">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Group" transform="translate(26.000000, 0.000000)" fill="#42A2ED" opacity="0.49879633">
+                        <g id="box">
+                            <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="box" fill="#42A2ED">
+                        <rect id="Rectangle" x="0" y="0" width="40" height="39.7515528" rx="8"></rect>
+                    </g>
+                </g>
+            </g>
+            <g filter="url(#filter-5)" id="scaleIn">
                 <g transform="translate(41.000000, 41.242236)">
                     <g id="Group" transform="translate(19.000000, 18.881988)" fill="#42A2ED" opacity="0.500386083">
                         <g id="box">
@@ -155,7 +211,7 @@
                     </g>
                 </g>
             </g>
-            <g filter="url(#filter-3)" id="scaleOut">
+            <g filter="url(#filter-6)" id="scaleOut">
                 <g transform="translate(41.000000, 41.242236)">
                     <g id="fade" transform="translate(19.000000, 18.881988)" fill="#42A2ED">
                         <g id="Group" opacity="0.500386083">
@@ -198,7 +254,7 @@
                     </g>
                 </g>
             </g>
-            <g filter="url(#filter-4)" id="scaleUp">
+            <g filter="url(#filter-7)" id="scaleUp">
                 <g transform="translate(30.000000, 30.310559)">
                     <g id="Group" stroke="#060606" stroke-width="7">
                         <g id="Group">
@@ -227,7 +283,7 @@
                     </g>
                 </g>
             </g>
-            <g filter="url(#filter-5)" id="scaleDown">
+            <g filter="url(#filter-8)" id="scaleDown">
                 <g transform="translate(30.000000, 30.310559)">
                     <g id="box" transform="translate(22.000000, 21.863354)" fill="#42A2ED">
                         <rect id="Rectangle" x="0" y="0" width="56" height="55.6521739" rx="8"></rect>
@@ -256,7 +312,7 @@
                     </g>
                 </g>
             </g>
-            <g filter="url(#filter-6)" id="expand">
+            <g filter="url(#filter-9)" id="expand">
                 <g transform="translate(61.000000, 60.124224)">
                     <g id="Group" transform="translate(11.000000, 42.732919)" stroke="#060606" stroke-width="7">
                         <g id="arrowTip" transform="translate(9.500000, 9.440994) rotate(-225.000000) translate(-9.500000, -9.440994) ">
@@ -273,7 +329,7 @@
                     </g>
                 </g>
             </g>
-            <g filter="url(#filter-7)" id="contract">
+            <g filter="url(#filter-10)" id="contract">
                 <g transform="translate(61.000000, 60.124224)">
                     <g id="Group" transform="translate(11.000000, 56.645963)" stroke="#060606" stroke-width="7">
                         <g id="arrowTip" transform="translate(9.500000, 9.440994) rotate(-45.000000) translate(-9.500000, -9.440994) ">

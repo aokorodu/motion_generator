@@ -12,8 +12,9 @@ export class App {
     this.selectedAnimation = "";
     this.summaryContent = document.getElementById('summary-content');
 
-    //this.motionTargets = document.querySelectorAll('.box');
     this.motionTarget = document.getElementById('mt');
+
+    this.motionChart = document.querySelector('motion-chart-component')
 
     // easing
     this.normalEase = "Sine.easeInOut";
@@ -60,10 +61,15 @@ export class App {
     this.initScaleComponent();
     this.initAccordians();
     this.initMotionTarget();
+    this.showChart();
   }
 
   initMotionTarget(){
     this.motionTarget.setAnimation(this.selectedAnimation, this.selectedDuration, this.selectedEase);
+  }
+
+  showChart(chartName){
+    this.motionChart.showChart(chartName);
   }
 
   initAccordians() {
@@ -191,8 +197,10 @@ export class App {
     for (let button of this.animTypeButtons) {
       button.addEventListener('click', (e) => {
         this.selectedAnimation = button.name;
+        this.showChart(button.name);
         this.selectButton(button, "type-selection")
         this.animate();
+        
       })
     }
   }
@@ -276,7 +284,7 @@ export class App {
   }
 
   updateSummaryContent() {
-    this.summaryContent.innerText = `animation: ${this.selectedAnimation} | duration: ${this.selectedDuration} | easing: ${this.selectedEase} | transform-origin: ${this.transformOrigin}`;
+    this.summaryContent.innerText = `animation: ${this.selectedAnimation}  |  duration: ${this.selectedDuration}  |  easing: ${this.selectedEase}  |  transform-origin: ${this.transformOrigin}`;
   }
 
   animate() {

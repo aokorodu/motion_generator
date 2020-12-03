@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <rect id="Rectangle" fill-opacity="0.15" fill="#8A2423" transform="translate(50.000000, 50.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -50.000000) " x="33" y="33" width="34" height="34" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.15" fill="#8A2423" transform="translate(50.500000, 49.500000) scale(-1, -1) rotate(-90.000000) translate(-50.500000, -49.500000) " x="37" y="36" width="27" height="27" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.15" fill="#8A2423" transform="translate(50.000000, 49.000000) scale(-1, -1) rotate(-90.000000) translate(-50.000000, -49.000000) " x="40" y="39" width="20" height="20" rx="2"></rect>
+            <rect id="Rectangle" fill-opacity="0.75" fill="#8A2423" transform="translate(50.500000, 49.500000) scale(-1, -1) rotate(-90.000000) translate(-50.500000, -49.500000) " x="44" y="43" width="13" height="13" rx="2"></rect>
+            <g id="Group-2" transform="translate(18.000000, 46.000000)" fill="#8A2423">
+                <polygon id="Triangle" transform="translate(61.000000, 4.000000) rotate(-270.000000) translate(-61.000000, -4.000000) " points="61 0 65 8 57 8"></polygon>
+                <polygon id="Triangle" transform="translate(4.000000, 4.000000) scale(-1, 1) rotate(-270.000000) translate(-4.000000, -4.000000) " points="4 0 8 8 0 8"></polygon>
+            </g>
+            <g id="Group-2" transform="translate(50.500000, 50.000000) rotate(-270.000000) translate(-50.500000, -50.000000) translate(18.000000, 46.000000)" fill="#8A2423">
+                <polygon id="Triangle" transform="translate(61.000000, 4.000000) rotate(-270.000000) translate(-61.000000, -4.000000) " points="61 0 65 8 57 8"></polygon>
+                <polygon id="Triangle" transform="translate(4.000000, 4.000000) scale(-1, 1) rotate(-270.000000) translate(-4.000000, -4.000000) " points="4 0 8 8 0 8"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
