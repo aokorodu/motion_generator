@@ -41,9 +41,9 @@ class MotionTargetComponent extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.box = this.shadowRoot.getElementById('motion-target');
     gsap.registerPlugin(Draggable);
-    Draggable.create(this.box, {type:"x,y", onDragEnd:()=>{this.dragEnd()}});
+    Draggable.create(this.box, { type: "x,y", onDragEnd: () => { this.dragEnd() } });
 
-    
+
     // ANIMATION PROPERTIES
     //  left right up down origin
     this.slideDistance = 25;
@@ -52,7 +52,7 @@ class MotionTargetComponent extends HTMLElement {
 
     // animation
     this.selectedAnimation = "";
-    
+
     // easing
     this.selectedEase = this.normalEase;
 
@@ -66,14 +66,14 @@ class MotionTargetComponent extends HTMLElement {
     this.addInteractivity();
   }
 
-  initializePoints(){
-    this.left = {x:this.origin.x-this.slideDistance, y:this.origin.y};
-    this.right = {x:this.origin.x+this.slideDistance, y:this.origin.y};
-    this.up = { x: this.origin.x, y: this.origin.y-this.slideDistance};
-    this.down = { x:this.origin.x, y: this.origin.y+this.slideDistance };
+  initializePoints() {
+    this.left = { x: this.origin.x - this.slideDistance, y: this.origin.y };
+    this.right = { x: this.origin.x + this.slideDistance, y: this.origin.y };
+    this.up = { x: this.origin.x, y: this.origin.y - this.slideDistance };
+    this.down = { x: this.origin.x, y: this.origin.y + this.slideDistance };
   }
 
-  dragEnd(){
+  dragEnd() {
     console.log('drag end', gsap.getProperty(this.box, "x"));
     this.origin.x = gsap.getProperty(this.box, "x");
     this.origin.y = gsap.getProperty(this.box, "y");
@@ -87,36 +87,36 @@ class MotionTargetComponent extends HTMLElement {
     this.selectedEase = ease;
   }
 
-  updateOrigin(newOrigin){
+  updateOrigin(newOrigin) {
     this.transformOrigin = newOrigin;
     console.log('update origin ', this.transformOrigin)
   }
 
-  updateSlideDistance(newdistance){
+  updateSlideDistance(newdistance) {
     this.slideDistance = Number(newdistance);
     this.initializePoints();
   }
 
-  addInteractivity(){
-    this.box.addEventListener("mouseenter", ()=>{
+  addInteractivity() {
+    this.box.addEventListener("mouseenter", () => {
       this.rollover();
     })
-    this.box.addEventListener("mouseleave", ()=>{
+    this.box.addEventListener("mouseleave", () => {
       this.rollOut();
     })
   }
 
-  rollover(){
+  rollover() {
     console.log('over');
     //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
-    gsap.to(this.box,{duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 3px'});
+    gsap.to(this.box, { duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 3px' });
   }
 
-  rollOut(){
+  rollOut() {
     console.log('leave');
-      //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
-      //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, borderWidth: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
-      gsap.to(this.box,{duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 0'});
+    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
+    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, borderWidth: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
+    gsap.to(this.box, { duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 0' });
   }
 
 
@@ -124,7 +124,7 @@ class MotionTargetComponent extends HTMLElement {
   runAnimation() {
     switch (this.selectedAnimation) {
       case "fadeIn":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale:this.getScale() }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.getScale() }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeInDelay() });
         break;
 
       case "fadeOut":
@@ -177,13 +177,21 @@ class MotionTargetComponent extends HTMLElement {
         gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: .1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
         break;
 
+      case "scaleInDown":
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: 2, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
+        break;
+
       case "scaleOut":
-          gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale:this.getScale(), transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: .1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
-          break;
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.getScale(), transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: .1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
+        break;
+
+      case "scaleOutUp":
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: 2, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
+        break;
 
       case "rotate":
         const angle = gsap.getProperty(this.box, "rotation") == 0 ? 180 : 0;
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { rotate: angle, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { rotate: angle, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration });
         break;
 
       case "wiggle":
@@ -207,9 +215,9 @@ class MotionTargetComponent extends HTMLElement {
     }
   }
 
-  getScale(){
+  getScale() {
     let currentScale = gsap.getProperty(this.box, "scale");
-    currentScale = currentScale  < 1 ? 1 : currentScale;
+    currentScale = currentScale < 1 ? 1 : currentScale;
     return currentScale;
   }
 
