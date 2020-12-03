@@ -203,13 +203,19 @@ class MotionTargetComponent extends HTMLElement {
           .to(this.box, { x: this.origin.x, duration: this.selectedDuration / 6, ease: this.selectedEase });
         break;
 
+      case "pulse":
+        let currentScale = gsap.getProperty(this.box, "scale");
+        let pulseScale = currentScale * 1.2;
+        let ntl = gsap.timeline();
+        ntl.fromTo(this.box, { opacity: 1, scale:currentScale, transformOrigin: this.transformOrigin }, { scale:pulseScale, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 3, ease: this.selectedEase })
+          .to(this.box, { opacity: 1, scale:1, transformOrigin: this.transformOrigin, duration: this.selectedDuration / 3, ease: this.selectedEase, yoyo: true, repeat:2 })
+        break;
+
       case "expand":
         gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { height: 150, ease: this.selectedEase, duration: this.selectedDuration });
         break;
 
       case "contract":
-        //gsap.to(this.box, { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
-
         gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1 }, { height: "auto", ease: this.selectedEase, duration: this.selectedDuration });
         break;
     }
