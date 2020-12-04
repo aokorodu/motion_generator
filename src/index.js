@@ -8,6 +8,7 @@ import { DistanceComponent } from './distance-component';
 import { ScaleComponent } from './scale-component';
 import { ImageComponent } from './image-component';
 import { MotionChartComponent } from './motion-chart-component';
+import { ScaleDistanceComponent } from './scale-distance-component';
 
 console.log('hello world');
 

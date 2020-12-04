@@ -59,6 +59,7 @@ export class App {
     this.initButtons();
     this.initDistanceComponent();
     this.initScaleComponent();
+    this.initScaleDistanceComponent();
     this.initAccordians();
     this.initMotionTarget();
     this.showChart();
@@ -96,9 +97,17 @@ export class App {
       this.updateSummaryContent();
       this.animate();
     })
-
-
   }
+
+  initScaleDistanceComponent() {
+    const dc = document.getElementById("scale-distance-component");
+    dc.addEventListener('newScaleDistance', (e) => {
+      console.log('scale distance: ', e.detail.value)
+      this.motionTarget.updateScaleDistance(e.detail.value);
+      this.animate();
+    })
+  }
+  
 
   initDistanceComponent() {
     const dc = document.getElementById("distance-component");

@@ -49,6 +49,9 @@ class MotionTargetComponent extends HTMLElement {
     this.slideDistance = 25;
     this.origin = { x: 0, y: 0 };
     this.left, this.right, this.up, this.down;
+    this.scaleDistance = 1;
+    this.scaleMax = 1.5;
+    this.scaleMin = .5;
 
     // animation
     this.selectedAnimation = "";
@@ -92,9 +95,16 @@ class MotionTargetComponent extends HTMLElement {
     console.log('update origin ', this.transformOrigin)
   }
 
-  updateSlideDistance(newdistance) {
-    this.slideDistance = Number(newdistance);
+  updateSlideDistance(newDistance) {
+    this.slideDistance = Number(newDistance);
     this.initializePoints();
+  }
+
+  updateScaleDistance(newDistance) {
+    this.scaleDistance = Number(newDistance)/100 * 1;
+    this.scaleMax = 1 + this.scaleDistance;
+    this.scaleMin = 1 - this.scaleDistance;
+    console.log(this.scaleDistance, this.scaleMax, this.scaleMin);
   }
 
   addInteractivity() {
@@ -166,7 +176,7 @@ class MotionTargetComponent extends HTMLElement {
         break;
 
       case "scaleUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.5, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.scaleMax, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleDown":
@@ -174,19 +184,19 @@ class MotionTargetComponent extends HTMLElement {
         break;
 
       case "scaleIn":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: .1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMin, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleInDown":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: 2, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMax, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleOut":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.getScale(), transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: .1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.getScale(), transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMin, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       case "scaleOutUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: 2, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMax, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getFadeOutDelay() });
         break;
 
       case "rotate":
