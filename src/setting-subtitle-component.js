@@ -2,10 +2,9 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
   .setting-subtitle {
-    font-size: 14px;
-    font-weight: 600;
-    font-variant: small-caps;
-    padding: 5px 0 5px 10px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 0 5px 30px;
     user-select: none; 
   }
 

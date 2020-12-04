@@ -3,15 +3,16 @@ template.innerHTML = `
   <style>
   .setting-button{
     width: 100%;
-    background-color: #eaeaea;
-    color: rgb(42, 42, 42);
-    padding: 5px 0 5px 15px;
+    background-color: #ffffff;
+    color: #292929;
+    padding: 3px 0 3px 40px;
     font-size: 12px;
     text-align: left;
     margin-bottom: 0;
     border: none;
     transition-property: color, background-color;
     transition-duration: 200ms;
+    outline: none;
   }
 
   .right{
@@ -23,13 +24,13 @@ template.innerHTML = `
   }
 
   .active-button{
-    color: #eaeaea;
-    background-color: rgb(42,42,42);
+    color: #000000;
+    background-color: #eaeaea;
   }
 
   .setting-button:hover{
-    color: #eaeaea;
-    background-color: rgb(42,42,42);
+    color: #000000;
+    background-color: #eaeaea;
   }
 
 

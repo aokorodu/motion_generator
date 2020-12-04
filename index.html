@@ -14,17 +14,10 @@
 
   <div id="container">
     <!--div class="main-title">Motion Generator</div-->
-    <div class="generator-content">
-      <div class="generator-holder">
-        <motion-target id="mt" active>
-          <h1>hello world</h1>
-        </motion-target>
-      </div>
-    </div>
     <div class="ui-holder">
       <div class="animation-type-holder">
-        <setting-title name="motion type"></setting-title>
-        <setting-subtitle name="incoming" class="accordian"></setting-subtitle>
+        <setting-title name="Motion Type"></setting-title>
+        <setting-subtitle name="Incoming" class="accordian"></setting-subtitle>
         <div class="panel">
           <setting-button name="slideInRight" class="type-selection"></setting-button>
           <setting-button name="slideInLeft" class="type-selection"></setting-button>
@@ -74,8 +67,6 @@
           <setting-button name="emphasis" class="curve-selection"></setting-button>
           <setting-button name="energetic" class="curve-selection"></setting-button>
         </div>
-      </div>
-      <div class="animation-type-holder">
         <setting-title name="duration"></setting-title>
         <setting-button name="verySlow" class="speed-selection"></setting-button>
         <setting-button name="slow" class="speed-selection"></setting-button>
@@ -83,6 +74,13 @@
         <setting-button name="fast" class="speed-selection"></setting-button>
         <setting-button name="veryFast" class="speed-selection"></setting-button>
         <setting-button name="instant" class="speed-selection"></setting-button>
+      </div>
+      <div class="generator-content">
+        <div class="generator-holder">
+          <motion-target id="mt" active>
+            <h1>hello world</h1>
+          </motion-target>
+        </div>
       </div>
       <div class="animation-type-holder">
         <setting-title name="settings"></setting-title>
