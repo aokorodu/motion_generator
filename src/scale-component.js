@@ -5,7 +5,6 @@ template.innerHTML = `
   position: relative;
   width: 100%;
   height: 120px;
-  border-bottom: 1px solid #cccccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,16 +15,20 @@ template.innerHTML = `
   width: 90px;
   top: 25px;
   height: 90px;
+  
 }
 .label{
   position: absolute;
+  border-bottom: 1px solid #cccccc;
   top: 0;
   width: 100%;
+  height: 15px;
   font-size: 1rem;
   padding: 2px;
   text-align: center;
   pointer-events: none;
   z-index: 10;
+  color: #aaaaaa;
 }
 
 .selected {

@@ -29,6 +29,7 @@ template.innerHTML = `
     padding: 2px;
     text-align: center;
     pointer-events: none;
+    color: #aaaaaa;
   }
 
   .slider {
@@ -37,18 +38,11 @@ template.innerHTML = `
     height: 100px;
     background: #E8E7E7;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
     padding: 0;
     margin: 20px 0 0 0;
     border-width: 1px 0;
     border-color: #cccccc;
     border-style: solid;
-  }
-  
-  .slider:hover {
-    opacity: 1;
   }
   
   .slider::-webkit-slider-thumb {
