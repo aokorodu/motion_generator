@@ -4,7 +4,7 @@ template.innerHTML = `
 .holder {
   position: relative;
   width: 100%;
-  height: 120px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,22 +13,9 @@ template.innerHTML = `
 .svg-holder{
   position: absolute;
   width: 90px;
-  top: 25px;
+  top: 5px;
   height: 90px;
   
-}
-.label{
-  position: absolute;
-  border-bottom: 1px solid #cccccc;
-  top: 0;
-  width: 100%;
-  height: 15px;
-  font-size: 1rem;
-  padding: 2px;
-  text-align: center;
-  pointer-events: none;
-  z-index: 10;
-  color: #aaaaaa;
 }
 
 .selected {
@@ -37,7 +24,6 @@ template.innerHTML = `
 }
 </style>
 <div class="holder">
-<div class="label">scale origin</div>
 <div class="svg-holder">
 <svg viewBox="0 0 102 102" version="1.1">
     <g id="Page-1" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd">

@@ -4,7 +4,7 @@ template.innerHTML = `
   .section-heading {
     font-size: 18px;
     font-weight: 600;
-    padding: 50px 0 5px 20px;
+    padding: 30px 0 5px 20px;
   }
   .right{
     text-align: right;
