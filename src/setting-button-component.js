@@ -3,7 +3,7 @@ template.innerHTML = `
   <style>
   .setting-button{
     width: 100%;
-    background-color: #ffffff;
+    background-color: transparent;
     color: #292929;
     padding: 3px 0 3px 40px;
     font-size: 12px;
@@ -25,12 +25,12 @@ template.innerHTML = `
 
   .active-button{
     color: #000000;
-    background-color: #eaeaea;
+    background-color: #cccccc;
   }
 
   .setting-button:hover{
     color: #000000;
-    background-color: #eaeaea;
+    background-color: #cccccc;
   }
 
 

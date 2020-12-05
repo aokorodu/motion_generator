@@ -15,6 +15,15 @@ $borderColor: #cccccc;
     padding: 0;
 }
 
+// colors
+.grey_one{
+  background-color: #EBEBEB;
+}
+
+.grey-two{
+  background-color: #F6F6F6;
+}
+
 .main-title {
   font-size: 24px;
   font-weight: 800;
@@ -49,11 +58,12 @@ $borderColor: #cccccc;
 }
 
 .summary-holder{
+  padding-top: 50px;
   position: relative;
   min-width: 400px;
   max-width: 400px;
   height: 100%;
-  border-right: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
 }
 
 .generator-content{
