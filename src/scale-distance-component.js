@@ -18,7 +18,6 @@ template.innerHTML = `
     font-size: 1.5rem;
     text-align: center;
     pointer-events: none;
-    color: #aaaaaa;
   }
 
   .label{
@@ -29,7 +28,6 @@ template.innerHTML = `
     padding: 2px;
     text-align: center;
     pointer-events: none;
-    color: #aaaaaa;
   }
 
   .slider {
