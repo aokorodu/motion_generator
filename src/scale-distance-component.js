@@ -12,63 +12,56 @@ template.innerHTML = `
 
   #slide-value{
     position: absolute;
-    top: 25px;
-    width: 100%;
-    font-weight: 600;
-    font-size: 1.5rem;
-    text-align: center;
-    pointer-events: none;
-  }
-
-  .label{
-    position: absolute;
     top: 0;
-    width: 100%;
-    font-size: 1rem;
-    padding: 2px;
-    text-align: center;
+    left: 70%;
+    width: 20%;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: right;
     pointer-events: none;
+    color: #000000;
+    margin-top: 15px;
+    transform: translateY(-50%);
   }
 
   .slider {
     -webkit-appearance: none;
-    width: 100%;
-    height: 100px;
-    background: #E8E7E7;
+    position: absolute;
+    width: 60%;
+    left: 10%;
+    height: 2px;
+    background: #000000;
     outline: none;
-    padding: 0;
-    margin: 20px 0 0 0;
-    border-width: 1px 0;
-    border-color: #cccccc;
-    border-style: solid;
+    margin: 15px auto;
   }
   
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 50px;
-    height: 100px;
+    width: 20px;
+    height: 20px;
     background: #FAF9F9;
+    border-radius: 50%;
     cursor: pointer;
-    border-width: 0 1px;
-    border-color: #cccccc;
+    border-width: 2px;
+    border-color: #000000;
     border-style: solid;
   }
   
   .slider::-moz-range-thumb {
-    width: 50px;
-    height: 100px;
+    width: 20px;
+    height: 20px;
     background: #FAF9F9;
+    border-radius: 50%;
     cursor: pointer;
-    border-width: 0 1px;
-    border-color: #cccccc;
+    border-width: 2px;
+    border-color: #000000;
     border-style: solid;
   }
 </style>
 <div class="holder">
   <div id="slide-value"></div>
   <input class="slider" type="range" value="50" min="0" max="100" step="10" />
-  <div class="label">scale distance</div>
 </div>
 `;
 

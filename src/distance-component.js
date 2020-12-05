@@ -4,7 +4,7 @@ template.innerHTML = `
   .holder {
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 30px;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
