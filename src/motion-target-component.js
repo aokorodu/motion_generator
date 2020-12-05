@@ -65,6 +65,9 @@ class MotionTargetComponent extends HTMLElement {
     // transform-origin
     this.transformOrigin = "center center";
 
+    // hover properties
+    this.hoverDuration = 0.3;
+
     this.initializePoints();
     this.addInteractivity();
   }
@@ -118,15 +121,12 @@ class MotionTargetComponent extends HTMLElement {
 
   rollover() {
     console.log('over');
-    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1.1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleUpDelay() });
-    gsap.to(this.box, { duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 3px' });
+    gsap.to(this.box, { duration: this.hoverDuration, ease: this.selectedEase, boxShadow: '0 0 0 3px' });
   }
 
   rollOut() {
     console.log('leave');
-    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
-    //gsap.to(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, borderWidth: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration});
-    gsap.to(this.box, { duration: this.selectedDuration, ease: this.selectedEase, boxShadow: '0 0 0 0' });
+    gsap.to(this.box, { duration: this.hoverDuration, ease: this.selectedEase, boxShadow: '0 0 0 0' });
   }
 
 
@@ -180,7 +180,7 @@ class MotionTargetComponent extends HTMLElement {
         break;
 
       case "scaleDown":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.scaleMax, transformOrigin: this.transformOrigin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.transformOrigin, ease: this.selectedEase, duration: this.selectedDuration, delay: this.getScaleDownDelay() });
         break;
 
       case "scaleIn":
