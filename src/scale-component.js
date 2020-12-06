@@ -28,7 +28,6 @@ template.innerHTML = `
 <svg viewBox="0 0 102 102" version="1.1">
     <g id="Page-1" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd">
         <g id="transformer" stroke="#000000">
-            <rect id="outer" fill="#FFFFFF" stroke="none" x="0" y="0" width="100" height="100"></rect>
             <rect id="inner" x="10" y="10" width="80" height="80"></rect>
             <g id="top-left" class="ball" transform="translate(6.000000, 6.000000)" fill="#FFFFFF">
                 <circle cx="5" cy="5" r="10"></circle>

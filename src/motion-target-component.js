@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { Draggable } from "gsap/Draggable";
+import { CustomEase } from "gsap/CustomEase";
 
 const template = document.createElement('template');
 template.innerHTML = `

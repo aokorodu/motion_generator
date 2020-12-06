@@ -14,7 +14,9 @@ export class App {
 
     this.motionTarget = document.getElementById('mt');
 
-    this.motionChart = document.querySelector('motion-chart-component')
+    this.motionChart = document.querySelector('motion-chart-component');
+
+    this.customEaseComponent = document.getElementById('custom-ease-component');
 
     // easing
     this.normalEase = "Sine.easeInOut";
@@ -120,6 +122,12 @@ export class App {
 
   initCustomEase() {
     gsap.registerPlugin(CustomEase);
+    this.customEaseComponent.addEventListener('customEase', (e)=>{
+      CustomEase.create("customEase", e.detail.value);
+      console.log('custom ease event detected', e.detail.value);
+      this.selectedEase = "customEase";
+      this.animate();
+    })
   }
 
   initProps() {
@@ -143,6 +151,7 @@ export class App {
       "reveal": this.reveal,
       "emphasis": this.emphasis,
       "linear": this.linear,
+      "custom": this.linear
     }[selection]
   }
 
@@ -179,7 +188,6 @@ export class App {
   selectButton(button, buttonGroupName) {
     const buttonGroup = this.getButtonGroup(buttonGroupName);
     for (let b of buttonGroup) {
-      // console.log('this one? ', button == b)
       if (b == button) {
         b.select();
       } else {
@@ -188,12 +196,8 @@ export class App {
     }
   }
 
-
-
   initButtons() {
-    // console.log('initButtons');
     const test = document.querySelector(".hhh");
-    // console.log('test: ', test)
     this.initAnimTypeButtons();
     this.initAnimSpeedButtons();
     this.initCurveButtons();

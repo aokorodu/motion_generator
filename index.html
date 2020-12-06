@@ -42,7 +42,7 @@
           <setting-button name="expand" class="type-selection"></setting-button>
           <setting-button name="contract" class="type-selection"></setting-button>
         </div>
-        <setting-subtitle name="expressive" class="accordian"></setting-subtitle>
+        <setting-subtitle name="whimsical" class="accordian"></setting-subtitle>
         <div class="panel">
           <setting-button name="rotate" class="type-selection"></setting-button>
           <setting-button name="wiggle" class="type-selection"></setting-button>
@@ -66,6 +66,10 @@
           <setting-button name="reveal" class="curve-selection"></setting-button>
           <setting-button name="emphasis" class="curve-selection"></setting-button>
           <setting-button name="energetic" class="curve-selection"></setting-button>
+        </div>
+        <setting-subtitle name="custom" class="accordian"></setting-subtitle>
+        <div class="panel">
+          <custom-ease-component id="custom-ease-component"></custom-ease-component>
         </div>
         <setting-title name="duration"></setting-title>
         <setting-button name="verySlow" class="speed-selection"></setting-button>
@@ -112,22 +116,6 @@
         </motion-chart-component>
         <div id="summary-content">-</div>
       </div>
-      <!--div class="animation-type-holder">
-        <setting-title name="view"></setting-title>
-        <setting-button name="- O -" class="view-selection"></setting-button>
-        <setting-button name="- O O -" class="view-selection"></setting-button>
-        <setting-button name="- O O O -" class="view-selection" active></setting-button>
-        <setting-button name="text" class="view-selection"></setting-button>
-      </div>
-      <div class="animation-type-holder">
-        <setting-title name="stagger duration"></setting-title>
-        <setting-button name="stagger-very-slow" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-slow" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-normal" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-fast" class="stagger-selection" active></setting-button>
-        <setting-button name="stagger-very-fast" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-none" class="stagger-selection"></setting-button>
-      </div-->
     </div>
   </div>
   <script src="./dist/main.js" async defer></script>
