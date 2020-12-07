@@ -1,6 +1,9 @@
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
+*{
+  font-size: 10px;
+}
 .holder {
   position: relative;
   width: 100%;
@@ -22,9 +25,30 @@ img{
   width: 100%;
   height: 100%;
 }
+
+.x-axis {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+}
+
+.y-axis {
+  position: absolute;
+  width: 100%;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-50%);
+  left: 60px;
+  top: 150px;
+  text-align: center;
+}
+
 </style>
 <div class="holder">
-  <slot />
+<div><slot /></div>
+<div class="x-axis">TIME</div>
+<div class="y-axis">PROGRESSION</div>
+  
 </div>
 `
 
