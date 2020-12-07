@@ -47,7 +47,7 @@ class MotionTargetComponent extends HTMLElement {
 
     // ANIMATION PROPERTIES
     //  left right up down origin
-    this.slideDistance = 25;
+    this.slideDistance = 50;
     this.origin = { x: 0, y: 0 };
     this.left, this.right, this.up, this.down;
     this.scaleDistance = 1;

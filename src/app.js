@@ -300,7 +300,7 @@ export class App {
   }
 
   updateSummaryContent() {
-    this.summaryContent.innerText = `animation: ${this.selectedAnimation}  |  duration: ${this.selectedDuration}  |  easing: ${this.selectedEase}  |  transform-origin: ${this.transformOrigin}`;
+    this.summaryContent.innerText = `animation: ${this.selectedAnimation}  |  duration: ${this.selectedDuration}  |  easing: ${this.selectedEase}  | slide-distance: ${this.motionTarget.slideDistance} | transform-origin: ${this.transformOrigin}`;
   }
 
   animate() {
