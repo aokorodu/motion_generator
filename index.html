@@ -14,17 +14,10 @@
 
   <div id="container">
     <!--div class="main-title">Motion Generator</div-->
-    <div class="generator-content">
-      <div class="generator-holder">
-        <motion-target id="mt" active>
-          <h1>hello world</h1>
-        </motion-target>
-      </div>
-    </div>
     <div class="ui-holder">
-      <div class="animation-type-holder">
-        <setting-title name="motion type"></setting-title>
-        <setting-subtitle name="incoming" class="accordian"></setting-subtitle>
+      <div class="animation-type-holder grey_one">
+        <setting-title name="Motion Type"></setting-title>
+        <setting-subtitle name="Incoming" class="accordian"></setting-subtitle>
         <div class="panel">
           <setting-button name="slideInRight" class="type-selection"></setting-button>
           <setting-button name="slideInLeft" class="type-selection"></setting-button>
@@ -49,7 +42,7 @@
           <setting-button name="expand" class="type-selection"></setting-button>
           <setting-button name="contract" class="type-selection"></setting-button>
         </div>
-        <setting-subtitle name="expressive" class="accordian"></setting-subtitle>
+        <setting-subtitle name="whimsical" class="accordian"></setting-subtitle>
         <div class="panel">
           <setting-button name="rotate" class="type-selection"></setting-button>
           <setting-button name="wiggle" class="type-selection"></setting-button>
@@ -61,7 +54,7 @@
           <setting-button name="fadeIn" class="type-selection"></setting-button>
         </div>
       </div>
-      <div class="animation-type-holder">
+      <div class="animation-type-holder grey-two">
         <setting-title name="easing"></setting-title>
         <setting-subtitle name="functional" class="accordian"></setting-subtitle>
         <div class="panel">
@@ -74,8 +67,10 @@
           <setting-button name="emphasis" class="curve-selection"></setting-button>
           <setting-button name="energetic" class="curve-selection"></setting-button>
         </div>
-      </div>
-      <div class="animation-type-holder">
+        <setting-subtitle name="custom" class="accordian"></setting-subtitle>
+        <div class="panel">
+          <custom-ease-component id="custom-ease-component"></custom-ease-component>
+        </div>
         <setting-title name="duration"></setting-title>
         <setting-button name="verySlow" class="speed-selection"></setting-button>
         <setting-button name="slow" class="speed-selection"></setting-button>
@@ -83,17 +78,29 @@
         <setting-button name="fast" class="speed-selection"></setting-button>
         <setting-button name="veryFast" class="speed-selection"></setting-button>
         <setting-button name="instant" class="speed-selection"></setting-button>
-      </div>
-      <div class="animation-type-holder">
-        <setting-title name="settings"></setting-title>
+        <setting-title name="slide distance"></setting-title>
         <distance-component id="distance-component" value="50"></distance-component>
-        <scale-component id="scale-component"></scale-component>
+        <setting-title name="scale distance"></setting-title>
         <scale-distance-component id="scale-distance-component" value="50"></scale-distance-component>
+        <setting-title name="transform origin"></setting-title>
+        <scale-component id="scale-component"></scale-component>
+      </div>
+      <div class="generator-content">
+        <div class="generator-holder">
+          <motion-target id="mt" active>
+            <h1>hello world</h1>
+          </motion-target>
+        </div>
       </div>
       <div class="summary-holder">
         <setting-title name="summary"></setting-title>
         <motion-chart-component id="motion-chart-component">
-          <image-component name="slideOutDown" src="./assets/slideOutDown.svg" active></image-component>
+          <image-component name="normal" src="./assets/normal.svg"></image-component>
+          <image-component name="linear" src="./assets/linear.svg"></image-component>
+          <image-component name="reveal" src="./assets/reveal.svg"></image-component>
+          <image-component name="emphasis" src="./assets/emphasis.svg"></image-component>
+          <image-component name="energetic" src="./assets/energetic.svg"></image-component>
+          <!--image-component name="slideOutDown" src="./assets/slideOutDown.svg" active></image-component>
           <image-component name="slideOutUp" src="./assets/slideOutUp.svg"></image-component>
           <image-component name="slideOutRight" src="./assets/slideOutRight.svg"></image-component>
           <image-component name="slideOutLeft" src="./assets/slideOutLeft.svg"></image-component>
@@ -110,26 +117,11 @@
           <image-component name="rotate" src="./assets/rotate.svg"></image-component>
           <image-component name="wiggle" src="./assets/wiggle.svg"></image-component>
           <image-component name="fadeOut" src="./assets/fadeOut.svg"></image-component>
-          <image-component name="fadeIn" src="./assets/fadeIn.svg"></image-component>
+          <image-component name="fadeIn" src="./assets/fadeIn.svg"></image-component-->
         </motion-chart-component>
-        <div id="summary-content">-</div>
+        <!--div>-</div-->
+        <summary-content-component id="summary-content"></summary-content-component>
       </div>
-      <!--div class="animation-type-holder">
-        <setting-title name="view"></setting-title>
-        <setting-button name="- O -" class="view-selection"></setting-button>
-        <setting-button name="- O O -" class="view-selection"></setting-button>
-        <setting-button name="- O O O -" class="view-selection" active></setting-button>
-        <setting-button name="text" class="view-selection"></setting-button>
-      </div>
-      <div class="animation-type-holder">
-        <setting-title name="stagger duration"></setting-title>
-        <setting-button name="stagger-very-slow" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-slow" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-normal" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-fast" class="stagger-selection" active></setting-button>
-        <setting-button name="stagger-very-fast" class="stagger-selection"></setting-button>
-        <setting-button name="stagger-none" class="stagger-selection"></setting-button>
-      </div-->
     </div>
   </div>
   <script src="./dist/main.js" async defer></script>

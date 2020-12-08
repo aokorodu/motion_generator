@@ -2,32 +2,66 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
   .holder {
+    position: relative;
     width: 100%;
-    height: 100px;
-    border-bottom: 1px solid #cccccc;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 
   #slide-value{
-    width: 100%;
-    font-size: 1rem;
-    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 70%;
+    width: 20%;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: right;
+    pointer-events: none;
+    color: #000000;
+    margin-top: 15px;
+    transform: translateY(-50%);
   }
 
-  .label{
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 5px;
-    text-align: center;
+  .slider {
+    -webkit-appearance: none;
+    position: absolute;
+    width: 60%;
+    left: 10%;
+    height: 2px;
+    background: #000000;
+    outline: none;
+    margin: 15px auto;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FAF9F9;
+    border-radius: 50%;
+    cursor: pointer;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FAF9F9;
+    border-radius: 50%;
+    cursor: pointer;
+    border-width: 2px;
+    border-color: #000000;
+    border-style: solid;
   }
 </style>
 <div class="holder">
   <div id="slide-value"></div>
-  <input id="slider" type="range" value="50" min="0" max="300" step="10" />
-  <div class="label">slide distance</div>
+  <input class="slider" type="range" value="50" min="0" max="300" step="10" />
 </div>
 `;
 
@@ -37,7 +71,7 @@ class DistanceComponent extends HTMLElement {
     this.attachShadow({mode: 'open'});
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.slider = this.shadowRoot.getElementById('slider');
+    this.slider = this.shadowRoot.querySelector('.slider');
     this.slider.addEventListener("input", (e)=>{
       this.slideValue.innerText = `${this.slider.value}px`;
     })

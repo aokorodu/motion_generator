@@ -2,19 +2,20 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 .holder {
+  position: relative;
   width: 100%;
-  height: 150px;
-  border-bottom: 1px solid #cccccc;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.label{
-  width: 100%;
-  font-size: 1.5rem;
-  padding: 5px;
-  text-align: center;
+.svg-holder{
+  position: absolute;
+  width: 90px;
+  top: 5px;
+  height: 90px;
+  
 }
 
 .selected {
@@ -23,42 +24,42 @@ template.innerHTML = `
 }
 </style>
 <div class="holder">
+<div class="svg-holder">
 <svg viewBox="0 0 102 102" version="1.1">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Page-1" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd">
         <g id="transformer" stroke="#000000">
-            <rect id="outer" fill="#FFFFFF" stroke="none" x="0" y="0" width="100" height="100"></rect>
             <rect id="inner" x="10" y="10" width="80" height="80"></rect>
-            <g id="top-left" class="ball" transform="translate(5.000000, 5.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+            <g id="top-left" class="ball" transform="translate(6.000000, 6.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
-            <g id="top-center" class="ball" transform="translate(45.000000, 5.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+            <g id="top-center" class="ball" transform="translate(45.000000, 6.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
-            <g id="top-right" class="ball" transform="translate(85.000000, 5.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+            <g id="top-right" class="ball" transform="translate(85.000000, 6.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
-            <g id="center-left" class="ball" transform="translate(5.000000, 45.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+            <g id="center-left" class="ball" transform="translate(6.000000, 45.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
             <g id="center-center" class="ball" transform="translate(45.000000, 45.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
             <g id="center-right" class="ball" transform="translate(85.000000, 45.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
-            <g id="bottom-left" class="ball" transform="translate(5.000000, 85.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+            <g id="bottom-left" class="ball" transform="translate(6.000000, 85.000000)" fill="#FFFFFF">
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
             <g id="bottom-center" class="ball" transform="translate(45.000000, 85.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
             <g id="bottom-right" class="ball" transform="translate(85.000000, 85.000000)" fill="#FFFFFF">
-                <circle cx="5" cy="5" r="5"></circle>
+                <circle cx="5" cy="5" r="10"></circle>
             </g>
         </g>
     </g>
 </svg>
-  <div class="label">scale origin</div>
+</div>
 </div>
 `
 

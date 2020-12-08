@@ -1,4 +1,5 @@
-$font-family: "Linotype Univers", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200&display=swap');
+$font-family: "Montserrat", sans-serif;
 
 /* durations */
 $slow: 600ms;
@@ -14,6 +15,15 @@ $borderColor: #cccccc;
     padding: 0;
 }
 
+// colors
+.grey_one{
+  background-color: #EBEBEB;
+}
+
+.grey-two{
+  background-color: #F6F6F6;
+}
+
 .main-title {
   font-size: 24px;
   font-weight: 800;
@@ -24,7 +34,7 @@ $borderColor: #cccccc;
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -40,20 +50,26 @@ $borderColor: #cccccc;
 
 .animation-type-holder{
   position: relative;
-  width: 200px;
+  min-width: 225px;
+  max-width: 225px;
   height: 100%;
   border-right: 1px solid $borderColor;
+  padding-top: 50px;
 }
 
 .summary-holder{
+  padding-top: 50px;
   position: relative;
-  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
   height: 100%;
-  border-right: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
+  background-color: #f6f6f6;
 }
 
 .generator-content{
   width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -61,27 +77,27 @@ $borderColor: #cccccc;
   align-items: center;
 }
 
-#summary-content{
-  padding: 10px;
+.generator-holder{
+  position: relative;
   width: 100%;
-  background-color: #1c1c1c;
-  color: #eaeaea;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
 }
 
-.generator-holder{
-    position: relative;
-    width: 100%;
-    height: $size;
-    border-bottom: 1px solid $borderColor;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fafafa;
+.settings-holder{
+  width: 100%;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  grid-column-gap: 10px;
+  background-color: #fafafa;
 }
+
+
 
 .panel{
   max-height: 0;
@@ -171,5 +187,9 @@ $borderColor: #cccccc;
 
 .fast {
     transition-duration: $fast;
+}
+
+.test {
+  color: #292929
 }
 

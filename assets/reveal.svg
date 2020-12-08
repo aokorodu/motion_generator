@@ -1,0 +1,7 @@
+<svg viewBox="-10 -10 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Page-1" stroke="#000000" stroke-width=".5" fill="none" fill-rule="evenodd">
+    <rect id="box" x="0" y="0" width="100" height="100" stroke-width="0.1"></rect>
+    <path id="curve" d="M 0 100 C 94.0741 99.9776 38.0546 0.0222 100 0" stroke="#8A2423" fill="none"></path>
+  </g>
+</svg>
