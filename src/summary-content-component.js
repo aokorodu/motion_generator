@@ -72,8 +72,8 @@ class SummaryContentComponent extends HTMLElement {
   getDescription(selection) {
     return {
       "Sine.easeInOut": "This is the default easing curve that will be applied to animations when no motion curve is specified",
-      "linear": "With this option, the animated object moves at a constant speed, with no accelleration or deceleration. Can be a bit jarring, so should probably only be used for opacity or color changes",
-      "Power4.easeInOut": "This easing curve is similar to the normal Sine.easeInOut animation curve, except that the accelleration and deceleration is more abrupt, giving the animation a bit more 'pop'. Use when you want to draw a bit more attention to the object being animated.",
+      "linear": "With this option, the animated object moves at a constant speed, with no acceleration or deceleration. Can be a bit jarring, so should probably only be used for opacity or color changes",
+      "Power4.easeInOut": "This easing curve is similar to the normal Sine.easeInOut animation curve, except that the acceleration and deceleration is more abrupt, giving the animation a bit more 'pop'. Use when you want to draw a bit more attention to the object being animated.",
       "back.inOut": "An easing curve with a bit of a bounce. Can be used for more celebratory animations.",
       "energetic": "An easing cuve with extra bounce. Should only be used for very expressive or celebratory animations.",
     }[selection]
