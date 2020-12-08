@@ -1,14 +1,11 @@
 import { gsap } from 'gsap';
 import { CustomEase } from "gsap/CustomEase";
-import { Draggable } from "gsap/Draggable";
 
 export class App {
   constructor() {
     this.animTypeButtons = [];
     this.animSpeedButtons = [];
     this.curveButtons = [];
-    this.viewButtons = [];
-    this.staggerButtons = [];
     this.selectedAnimation = "";
     this.summaryContent = document.getElementById('summary-content');
 
@@ -184,8 +181,6 @@ export class App {
       "type-selection": this.animTypeButtons,
       "speed-selection": this.animSpeedButtons,
       "curve-selection": this.curveButtons,
-      "view-selection": this.viewButtons,
-      "stagger-selection": this.staggerButtons
     }[selection]
   }
 
@@ -205,8 +200,6 @@ export class App {
     this.initAnimTypeButtons();
     this.initAnimSpeedButtons();
     this.initCurveButtons();
-    this.initViewButtons();
-    this.initStaggerButtons();
   }
 
   initAnimTypeButtons() {
@@ -239,62 +232,6 @@ export class App {
         this.selectedEase = this.getCurve(button.name);
         this.showChart(button.name);
         this.selectButton(button, "curve-selection");
-        this.animate();
-      })
-    }
-  }
-
-  initViewButtons() {
-    this.viewButtons = document.querySelectorAll('.view-selection');
-    for (let button of this.viewButtons) {
-      button.addEventListener('click', (e) => {
-        this.selectButton(button, "view-selection")
-        this.selectedView = this.getView(button.name);
-        switch (this.selectedView) {
-          case this.textView:
-            for (let target of this.motionTargets) {
-              target.classList.remove('default-border');
-            }
-            break;
-
-          case this.boxView:
-            for (let i = 0; i < this.motionTargets.length; i++) {
-              const target = this.motionTargets[i];
-              target.classList.add('default-border');
-              i == 0 ? target.style.display = "" : target.style.display = "none";
-            }
-
-            break;
-
-          case this.twoBoxView:
-            for (let i = 0; i < this.motionTargets.length; i++) {
-              const target = this.motionTargets[i];
-              target.classList.add('default-border');
-              i > 1 ? target.style.display = "none" : target.style.display = "";
-            }
-            //this.motionTargets[1].style.display = "";
-            break;
-
-          case this.threeBoxView:
-            for (let i = 0; i < this.motionTargets.length; i++) {
-              const target = this.motionTargets[i];
-              target.classList.add('default-border');
-              target.style.display = "";
-            }
-            break;
-        }
-
-      })
-    }
-  }
-
-  initStaggerButtons() {
-    console.log('initStaggerButtons');
-    this.staggerButtons = document.querySelectorAll('.stagger-selection');
-    for (let button of this.staggerButtons) {
-      button.addEventListener('click', (e) => {
-        this.staggerDuration = this.getStagger(button.name);
-        this.selectButton(button, "stagger-selection");
         this.animate();
       })
     }
