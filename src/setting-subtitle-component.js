@@ -29,13 +29,29 @@ class SettingSubtitleComponent extends HTMLElement {
   constructor(){
     super();
     this.name = this.getAttribute('name');
+    this.active = this.getAttribute('active') != null ? true : false;
     this.rightAlign = this.getAttribute("right")  != null ? true : false;
     this.attachShadow({mode: 'open'});
     this.shadowRoot.append(template.content.cloneNode(true));
-    const theDiv = this.shadowRoot.querySelector(".setting-subtitle")
-    theDiv.innerText = this.name;
+    this.theDiv = this.shadowRoot.querySelector(".setting-subtitle")
+    this.theDiv.innerText = this.name;
     if(this.rightAlign) {
-      theDiv.classList.add("right")
+      this.theDiv.classList.add("right")
+    }
+
+    this.activate(this.active);
+  }
+
+  toggle(){
+    this.activate(!this.active);
+  }
+
+  activate(bool){
+    this.active = bool;
+    if(bool){
+      this.theDiv.classList.add('active');
+    } else {
+      this.theDiv.classList.remove('active');
     }
   }
 }

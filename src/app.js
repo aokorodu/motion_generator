@@ -79,9 +79,10 @@ export class App {
     const accordians = document.querySelectorAll('.accordian');
     for (let accord of accordians) {
       accord.addEventListener("click", () => {
-        console.log('click')
+        console.log('click');
+        accord.toggle();
         const panel = accord.nextElementSibling;
-        if (panel.style.maxHeight) {
+        if (!accord.active) {
           panel.style.maxHeight = null;
         } else {
           panel.style.maxHeight = panel.scrollHeight + "px";
