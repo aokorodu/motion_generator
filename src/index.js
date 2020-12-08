@@ -10,6 +10,7 @@ import { ImageComponent } from './image-component';
 import { MotionChartComponent } from './motion-chart-component';
 import { ScaleDistanceComponent } from './scale-distance-component';
 import { CustomEaseComponent } from './custom-ease_component';
+import { SummaryContentComponent } from './summary-content-component';
 
 console.log('hello world');
 

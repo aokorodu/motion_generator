@@ -300,7 +300,9 @@ export class App {
   }
 
   updateSummaryContent() {
-    this.summaryContent.innerText = `animation: ${this.selectedAnimation}  |  duration: ${this.selectedDuration}  |  easing: ${this.selectedEase}  | slide-distance: ${this.motionTarget.slideDistance}px | transform-origin: ${this.transformOrigin}`;
+    //this.summaryContent.innerText = `animation: ${this.selectedAnimation}  |  duration: ${this.selectedDuration}  |  easing: ${this.selectedEase}  | slide-distance: ${this.motionTarget.slideDistance}px | transform-origin: ${this.transformOrigin}`;
+
+    this.summaryContent.update(this.selectedAnimation, this.selectedDuration, this.selectedEase, this.motionTarget.slideDistance, this.transformOrigin);
   }
 
   animate() {

@@ -8,7 +8,6 @@ template.innerHTML = `
   position: relative;
   width: 100%;
   height: 300px;
-  border-bottom: 1px solid #cccccc;
 }
 .diagram{
   position: absolute;
