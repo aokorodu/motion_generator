@@ -34,7 +34,7 @@ export class App {
   }
 
   initMotionTarget() {
-    this.motionTarget.setAnimation(this.animationState.animation, this.animationState.duration, this.animationState.ease);
+    this.motionTarget.setAnimation(this.animationState);
   }
 
   showChart(chartName) {
@@ -45,7 +45,6 @@ export class App {
     const sc = document.getElementById("scale-component");
     sc.addEventListener('newTransformOrigin', (e) => {
       this.animationState.origin = e.detail.value.replace("-", " ");
-      this.motionTarget.updateOrigin(this.animationState.origin);
       this.updateSummaryContent();
       this.animate();
     })
@@ -149,7 +148,6 @@ export class App {
 
   animate() {
     this.updateSummaryContent();
-    this.motionTarget.setAnimation(this.animationState.animation, this.animationState.duration, this.animationState.ease);
     this.motionTarget.runAnimation();
   }
 }
