@@ -21,6 +21,9 @@ export class AnimationState {
 
     // origin
     this.transformOrigin = "center center"
+
+    // slide distance
+    this.slideDistance = 50;
   }
 
   get duration(){
@@ -69,6 +72,14 @@ export class AnimationState {
 
   set origin(newOrigin){
     this.transformOrigin = newOrigin;
+  }
+
+  get distance(){
+    return this.slideDistance;
+  }
+
+  set distance(newDistance){
+    this.slideDistance = newDistance;
   }
 
 

@@ -47,7 +47,6 @@ class MotionTargetComponent extends HTMLElement {
 
     // ANIMATION PROPERTIES
     //  left right up down origin
-    this.slideDistance = 50;
     this.origin = { x: 0, y: 0 };
     this.left, this.right, this.up, this.down;
     this.scaleDistance = 1;
@@ -59,16 +58,14 @@ class MotionTargetComponent extends HTMLElement {
 
     // hover properties
     this.hoverDuration = 0.3;
-
-    this.initializePoints();
     this.addInteractivity();
   }
 
   initializePoints() {
-    this.left = { x: this.origin.x - this.slideDistance, y: this.origin.y };
-    this.right = { x: this.origin.x + this.slideDistance, y: this.origin.y };
-    this.up = { x: this.origin.x, y: this.origin.y - this.slideDistance };
-    this.down = { x: this.origin.x, y: this.origin.y + this.slideDistance };
+    this.left = { x: this.origin.x - this.animationState.distance, y: this.origin.y };
+    this.right = { x: this.origin.x + this.animationState.distance, y: this.origin.y };
+    this.up = { x: this.origin.x, y: this.origin.y - this.animationState.distance };
+    this.down = { x: this.origin.x, y: this.origin.y + this.animationState.distance };
   }
 
   dragEnd() {
@@ -81,11 +78,6 @@ class MotionTargetComponent extends HTMLElement {
 
   setAnimation(animState) {
     this.animationState = animState;
-  }
-
-  updateSlideDistance(newDistance) {
-    this.slideDistance = Number(newDistance);
-    this.initializePoints();
   }
 
   updateScaleDistance(newDistance) {
@@ -117,6 +109,8 @@ class MotionTargetComponent extends HTMLElement {
 
 
   runAnimation() {
+    this.initializePoints();
+
     switch (this.animationState.animation) {
       case "fadeIn":
         gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.getScale() }, { x: this.origin.x, y: this.origin.y, opacity: 1, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getFadeInDelay() });

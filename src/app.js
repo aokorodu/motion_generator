@@ -63,7 +63,7 @@ export class App {
   initDistanceComponent() {
     const dc = document.getElementById("distance-component");
     dc.addEventListener('newDistance', (e) => {
-      this.motionTarget.updateSlideDistance(e.detail.value);
+      this.animationState.distance = Number(e.detail.value);
       this.animate();
     })
   }
