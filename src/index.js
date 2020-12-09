@@ -11,6 +11,7 @@ import { MotionChartComponent } from './motion-chart-component';
 import { ScaleDistanceComponent } from './scale-distance-component';
 import { CustomEaseComponent } from './custom-ease_component';
 import { SummaryContentComponent } from './summary-content-component';
+import { AccordianComponent } from './accordian-component';
 
 console.log('hello world');
 
