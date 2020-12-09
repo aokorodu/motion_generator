@@ -15,10 +15,11 @@ export class App {
     this.customEaseComponent = document.getElementById('custom-ease-component');
 
     // animation state
-    this.animationState = new AnimationState();
+    this.animationState;
   }
 
   init() {
+    this.initAnimationState();
     this.initCustomEase();
     this.initButtons();
     this.initDistanceComponent();
@@ -26,6 +27,10 @@ export class App {
     this.initScaleDistanceComponent();
     this.initMotionTarget();
     this.showChart("normal");
+  }
+
+  initAnimationState() {
+    this.animationState = new AnimationState();
   }
 
   initMotionTarget() {
