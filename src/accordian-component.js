@@ -36,15 +36,18 @@ template.innerHTML = `
 class AccordianComponent extends HTMLElement{
   constructor(){
     super();
-    this.attachShadow({mode: 'open'});
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.initShadow();
     this.name = this.getAttribute('name');
-    console.log('name: ', this.name)
     this.subtitle = this.shadowRoot.querySelector('.setting-subtitle');
     this.subtitle.innerHTML = this.name;
     this.panel = this.shadowRoot.querySelector('.panel');
     this.open = this.getAttribute('open') == null ? false : true;
     this.subtitle.addEventListener('click', ()=>{this.toggle()});
+  }
+
+  initShadow(){
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
   toggle(){
