@@ -58,7 +58,6 @@ export class App {
     this.initDistanceComponent();
     this.initScaleComponent();
     this.initScaleDistanceComponent();
-    this.initAccordians();
     this.initMotionTarget();
     this.showChart("normal");
   }
@@ -71,26 +70,9 @@ export class App {
     this.motionChart.showChart(chartName);
   }
 
-  initAccordians() {
-    const accordians = document.querySelectorAll('.accordian');
-    for (let accord of accordians) {
-      accord.addEventListener("click", () => {
-        console.log('click');
-        accord.toggle();
-        const panel = accord.nextElementSibling;
-        if (!accord.active) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      })
-    }
-  }
-
   initScaleComponent() {
     const sc = document.getElementById("scale-component");
     sc.addEventListener('newTransformOrigin', (e) => {
-
       this.transformOrigin = e.detail.value.replace("-", " ");
       this.motionTarget.updateOrigin(this.transformOrigin);
       this.updateSummaryContent();
