@@ -49,7 +49,7 @@ class MotionTargetComponent extends HTMLElement {
     //  left right up down origin
     this.origin = { x: 0, y: 0 };
     this.left, this.right, this.up, this.down;
-    this.scaleDistance = 1;
+    this.scaleDistance = .5;
     this.scaleMax = 1.5;
     this.scaleMin = .5;
 
@@ -80,11 +80,9 @@ class MotionTargetComponent extends HTMLElement {
     this.animationState = animState;
   }
 
-  updateScaleDistance(newDistance) {
-    this.scaleDistance = Number(newDistance)/100 * 1;
-    this.scaleMax = 1 + this.scaleDistance;
-    this.scaleMin = 1 - this.scaleDistance;
-    console.log(this.scaleDistance, this.scaleMax, this.scaleMin);
+  initScaleSizes() {
+    this.scaleMax = 1 + this.animationState.scaleDistance;
+    this.scaleMin = 1 - this.animationState.scaleDistance;
   }
 
   addInteractivity() {
@@ -110,6 +108,7 @@ class MotionTargetComponent extends HTMLElement {
 
   runAnimation() {
     this.initializePoints();
+    this.initScaleSizes();
 
     switch (this.animationState.animation) {
       case "fadeIn":

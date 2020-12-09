@@ -53,8 +53,7 @@ export class App {
   initScaleDistanceComponent() {
     const dc = document.getElementById("scale-distance-component");
     dc.addEventListener('newScaleDistance', (e) => {
-      console.log('scale distance: ', e.detail.value)
-      this.motionTarget.updateScaleDistance(e.detail.value);
+      this.animationState.scaleDistance = Number(e.detail.value)/100;
       this.animate();
     })
   }
@@ -143,7 +142,7 @@ export class App {
   }
 
   updateSummaryContent() {
-    this.summaryContent.update(this.animationState.animation, this.animationState.duration, this.animationState.ease, this.motionTarget.slideDistance, this.animationState.origin);
+    this.summaryContent.update(this.animationState.animation, this.animationState.duration, this.animationState.ease, this.animationState.distance, this.animationState.origin);
   }
 
   animate() {

@@ -24,6 +24,9 @@ export class AnimationState {
 
     // slide distance
     this.slideDistance = 50;
+
+    // scale distance
+    this.scaleDelta = .5;
   }
 
   get duration(){
@@ -80,6 +83,14 @@ export class AnimationState {
 
   set distance(newDistance){
     this.slideDistance = newDistance;
+  }
+
+  get scaleDistance(){
+    return this.scaleDelta;
+  }
+
+  set scaleDistance(newDelta){
+    this.scaleDelta = newDelta;
   }
 
 
