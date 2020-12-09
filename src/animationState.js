@@ -27,6 +27,8 @@ export class AnimationState {
 
     // scale distance
     this.scaleDelta = .5;
+    this.scaleMax = 1.5;
+    this.scaleMin = 0.5;
   }
 
   get duration(){
@@ -91,6 +93,8 @@ export class AnimationState {
 
   set scaleDistance(newDelta){
     this.scaleDelta = newDelta;
+    this.scaleMax = 1 + newDelta;
+    this.scaleMin = 1 - newDelta;
   }
 
 

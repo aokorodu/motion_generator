@@ -49,9 +49,6 @@ class MotionTargetComponent extends HTMLElement {
     //  left right up down origin
     this.origin = { x: 0, y: 0 };
     this.left, this.right, this.up, this.down;
-    this.scaleDistance = .5;
-    this.scaleMax = 1.5;
-    this.scaleMin = .5;
 
     // animation state
     this.animationState = null;
@@ -80,11 +77,6 @@ class MotionTargetComponent extends HTMLElement {
     this.animationState = animState;
   }
 
-  initScaleSizes() {
-    this.scaleMax = 1 + this.animationState.scaleDistance;
-    this.scaleMin = 1 - this.animationState.scaleDistance;
-  }
-
   addInteractivity() {
     this.box.addEventListener("mouseenter", () => {
       this.rollover();
@@ -95,20 +87,15 @@ class MotionTargetComponent extends HTMLElement {
   }
 
   rollover() {
-    console.log('over');
     gsap.to(this.box, { duration: this.hoverDuration, ease: this.animationState.ease, boxShadow: '0 0 0 3px' });
   }
 
   rollOut() {
-    console.log('leave');
     gsap.to(this.box, { duration: this.hoverDuration, ease: this.animationState.ease, boxShadow: '0 0 0 0' });
   }
 
-
-
   runAnimation() {
     this.initializePoints();
-    this.initScaleSizes();
 
     switch (this.animationState.animation) {
       case "fadeIn":
@@ -154,27 +141,27 @@ class MotionTargetComponent extends HTMLElement {
         break;
 
       case "scaleUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.scaleMax, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.animationState.scaleMax, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleDown":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.scaleMax, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleDownDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.animationState.scaleMax, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleDownDelay() });
         break;
 
       case "scaleIn":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMin, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.animationState.scaleMin, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleInDown":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMax, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.animationState.scaleMax, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getScaleUpDelay() });
         break;
 
       case "scaleOut":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.getScale(), transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMin, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getFadeOutDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: this.getScale(), transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.animationState.scaleMin, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getFadeOutDelay() });
         break;
 
       case "scaleOutUp":
-        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.scaleMax, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getFadeOutDelay() });
+        gsap.fromTo(this.box, { x: this.origin.x, y: this.origin.y, opacity: 1, scale: 1, transformOrigin: this.animationState.origin }, { x: this.origin.x, y: this.origin.y, opacity: 0, scale: this.animationState.scaleMax, transformOrigin: this.animationState.origin, ease: this.animationState.ease, duration: this.animationState.duration, delay: this.getFadeOutDelay() });
         break;
 
       case "rotate":
