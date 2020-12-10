@@ -84,6 +84,10 @@ class DistanceComponent extends HTMLElement {
     this.slideValue.innerText = `${this.getAttribute("value")}px`;
   }
 
+  get value(){
+    return this.slider.value;
+  }
+
   dispatchDistanceEvent(){
     this.dispatchEvent(new CustomEvent('newDistance', { bubbles: true, composed: true, detail: { value: this.slider.value } }))
   }

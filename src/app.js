@@ -51,8 +51,8 @@ export class App {
   }
 
   initScaleDistanceComponent() {
-    const dc = document.getElementById("scale-distance-component");
-    dc.addEventListener('newScaleDistance', (e) => {
+    const sdc = document.getElementById("scale-distance-component");
+    sdc.addEventListener('newScaleDistance', (e) => {
       this.animationState.scaleDistance = Number(e.detail.value)/100;
       this.animate();
     })
@@ -61,6 +61,7 @@ export class App {
 
   initDistanceComponent() {
     const dc = document.getElementById("distance-component");
+    this.animationState.distance = dc.value;
     dc.addEventListener('newDistance', (e) => {
       this.animationState.distance = Number(e.detail.value);
       this.animate();

@@ -96,6 +96,4 @@ export class AnimationState {
     this.scaleMax = 1 + newDelta;
     this.scaleMin = 1 - newDelta;
   }
-
-
 }
